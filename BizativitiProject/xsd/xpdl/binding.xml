@@ -1,0 +1,27 @@
+<jxb:bindings
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    version="2.1">
+
+    <jxb:bindings schemaLocation="bpmnxpdl_40a.xsd">
+        <jxb:bindings node="//xsd:element[@name='TriggerTimer']/xsd:complexType/xsd:attribute[@name='TimeDate']">
+            <jxb:property name="timeDateAttr"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xsd:element[@name='TriggerTimer']/xsd:complexType/xsd:attribute[@name='TimeCycle']">
+            <jxb:property name="TimeCycleAttr"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xsd:element[@name='LoopStandard']/xsd:complexType/xsd:attribute[@name='LoopCondition']">
+            <jxb:property name="LoopConditionAttr"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xsd:element[@name='LoopMultiInstance']/xsd:complexType/xsd:attribute[@name='MI_Condition']">
+            <jxb:property name="MI_ConditionAttr"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xsd:element[@name='LoopMultiInstance']/xsd:complexType/xsd:attribute[@name='ComplexMI_FlowCondition']">
+            <jxb:property name="ComplexMI_FlowConditionAttr"/>
+        </jxb:bindings>
+        <jxb:bindings node="//xsd:element[@name='Artifact']/xsd:complexType/xsd:attribute[@name='Group']">
+            <jxb:property name="GroupAttr"/>
+        </jxb:bindings>
+    </jxb:bindings>
+
+</jxb:bindings>
