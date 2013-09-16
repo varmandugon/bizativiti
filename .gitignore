@@ -1,6 +1,12 @@
+# bin directory
+bin/
 *.class
 
 # Package Files #
-*.jar
 *.war
 *.ear
+/.metadata/
+
+# eclipse dirs
+.setting
+/RemoteSystemsTempFiles
