@@ -6,19 +6,18 @@ import java.util.List;
 import com.fing.pis.bizativiti.metamodel.MetamodelElement;
 
 /**
- * Translator de {@link org.wfmc._2009.xpdl2.WorkflowProcesses}
+ * Translator de {@link org.wfmc._2009.xpdl2.ProcessType}
  */
-public class TranslatorWorkflowProcesses extends ATranslator {
+public class TranslatorProcessType extends ATranslator {
 
     /**
      * Llama recursivamente y junta los resultados de cada nodo.
      */
     @Override
     public List<MetamodelElement> translate(Converter f, Object node, List<Object> pathFromRoot) {
-        org.wfmc._2009.xpdl2.WorkflowProcesses workflowProcesses = (org.wfmc._2009.xpdl2.WorkflowProcesses) node;
+        org.wfmc._2009.xpdl2.ProcessType processType = (org.wfmc._2009.xpdl2.ProcessType) node;
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
-        for (org.wfmc._2009.xpdl2.ProcessType child : workflowProcesses.getWorkflowProcess()) {
-            // el translator no pude manejar una lista de objetos, debemos hacer la iteración manualmente
+        for (Object child : processType.getContent()) {
             result.addAll(f.eval(child, pathFromRoot));
         }
         return result;

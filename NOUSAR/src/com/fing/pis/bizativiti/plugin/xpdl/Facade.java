@@ -20,7 +20,15 @@ public class Facade implements IPlugin {
     // @formatter:off
     private Converter converter = new Converter.Builder()
         .add(org.wfmc._2009.xpdl2.PackageType.class, new TranslatorPackageType())
+        .add(org.wfmc._2009.xpdl2.ProcessType.class, new TranslatorProcessType())
         .add(org.wfmc._2009.xpdl2.WorkflowProcesses.class, new TranslatorWorkflowProcesses())
+        .add(org.wfmc._2009.xpdl2.ProcessHeader.class, DummyTranslator.getInstance())
+        .add(org.wfmc._2009.xpdl2.RedefinableHeader.class, DummyTranslator.getInstance())
+        .add(org.wfmc._2009.xpdl2.ActivitySets.class, DummyTranslator.getInstance())
+        .add(org.wfmc._2009.xpdl2.DataInputOutputs.class, DummyTranslator.getInstance())
+        .add(org.wfmc._2009.xpdl2.ExtendedAttributes.class, DummyTranslator.getInstance())
+        .add(org.wfmc._2009.xpdl2.Activities.class, new TranslatorActivities())
+        .add(org.wfmc._2009.xpdl2.Activity.class, new TranslatorActivity())
         .create();
     // @formatter:on
 
