@@ -17,9 +17,12 @@ public class Facade implements IPlugin {
 
     // TODO: por ahora se genera un converter sin la intervención del usuario.
     // Hay que cambiar esto para que luego el usuario pueda mediante parametros cambiar la creación
+    // @formatter:off
     private Converter converter = new Converter.Builder()
-    // .add(, translator)
-            .create();
+        .add(org.wfmc._2009.xpdl2.PackageType.class, new TranslatorPackageType())
+        .add(org.wfmc._2009.xpdl2.WorkflowProcesses.class, new TranslatorWorkflowProcesses())
+        .create();
+    // @formatter:on
 
     @Override
     public String getType() {

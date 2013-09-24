@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fing.pis.bizativiti.metamodel.MetamodelElement;
+
 public class Converter {
 
     private Map<Class<?>, ATranslator> translators;
@@ -28,7 +30,7 @@ public class Converter {
         translators = Collections.unmodifiableMap(builder.translators);
     }
 
-    public Object eval(Object node, List<Object> pathFromRootWithoutNode) {
+    public List<MetamodelElement> eval(Object node, List<Object> pathFromRootWithoutNode) {
         // vemos si existe un translator para el nodo
         ATranslator trans = translators.get(node.getClass());
         if (trans == null) {
