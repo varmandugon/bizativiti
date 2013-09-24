@@ -1,0 +1,4 @@
+# ignore output directory files
+/bin
+# ignore generated files
+/gen
