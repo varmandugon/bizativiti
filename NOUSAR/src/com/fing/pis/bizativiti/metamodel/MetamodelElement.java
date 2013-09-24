@@ -10,9 +10,10 @@ public abstract class MetamodelElement {
             throw new IllegalArgumentException("id is null");
         }
 
-        if (!id.startsWith("_")) {
-            id = "_" + id;
-        }
+        // FIXME
+        //        if (!id.startsWith("_")) {
+        //            id = "_" + id;
+        //        }
         this.id = id;
 
         if (description == null) {
