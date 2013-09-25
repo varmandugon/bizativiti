@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti;
+package com.fing.pis.bizativiti.core.common;
 
 import java.io.InputStream;
 import java.util.List;
