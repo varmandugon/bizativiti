@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 
 public class Converter {
 

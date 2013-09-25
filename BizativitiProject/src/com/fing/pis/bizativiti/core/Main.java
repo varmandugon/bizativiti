@@ -8,8 +8,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-import com.fing.pis.bizativiti.core.common.IPlugin;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.IPlugin;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 
 public class Main {
 

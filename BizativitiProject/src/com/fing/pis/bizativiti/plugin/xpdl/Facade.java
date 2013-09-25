@@ -10,8 +10,8 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 
-import com.fing.pis.bizativiti.core.common.IPlugin;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.IPlugin;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 
 public class Facade implements IPlugin {
 

@@ -8,10 +8,10 @@ import org.omg.spec.bpmn._20100524.model.TInclusiveGateway;
 import org.omg.spec.bpmn._20100524.model.TParallelGateway;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelFlowElement;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelGateway;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelInclusiveGateway;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelParallelGateway;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelGateway;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelInclusiveGateway;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelParallelGateway;
 
 public class GatewayTranslator implements Translator {
 

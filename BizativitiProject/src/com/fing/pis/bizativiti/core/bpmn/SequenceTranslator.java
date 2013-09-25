@@ -6,8 +6,8 @@ import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.bpmn._20100524.model.TSequenceFlow;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelConnector;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelSequenceFlow;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelConnector;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelSequenceFlow;
 
 public class SequenceTranslator implements Translator {
 

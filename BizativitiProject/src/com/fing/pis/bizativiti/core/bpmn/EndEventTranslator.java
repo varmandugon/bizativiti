@@ -6,8 +6,8 @@ import org.omg.spec.bpmn._20100524.model.TEndEvent;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelEndEvent;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelFlowElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelEndEvent;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 
 public class EndEventTranslator implements Translator {
 

@@ -3,7 +3,7 @@ package com.fing.pis.bizativiti.plugin.xpdl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 
 /**
  * Translator de {@link org.wfmc._2009.xpdl2.ProcessType}

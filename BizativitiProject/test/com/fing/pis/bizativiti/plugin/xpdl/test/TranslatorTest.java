@@ -8,8 +8,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelStartEvent;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
 import com.fing.pis.bizativiti.plugin.xpdl.Facade;
 
 public class TranslatorTest {

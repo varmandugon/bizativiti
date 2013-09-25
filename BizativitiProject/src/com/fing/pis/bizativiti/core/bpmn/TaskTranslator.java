@@ -8,11 +8,11 @@ import org.omg.spec.bpmn._20100524.model.TTask;
 import org.omg.spec.bpmn._20100524.model.TUserTask;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelFlowElement;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelManualTask;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelTask;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelUserTask;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelManualTask;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelTask;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelUserTask;
 
 public class TaskTranslator implements Translator {
 

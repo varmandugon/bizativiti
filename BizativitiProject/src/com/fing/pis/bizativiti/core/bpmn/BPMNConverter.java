@@ -10,8 +10,8 @@ import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.bpmn._20100524.model.TProcess;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
-import com.fing.pis.bizativiti.core.common.metamodel.MetamodelPackage;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelPackage;
 
 public class BPMNConverter {
 
