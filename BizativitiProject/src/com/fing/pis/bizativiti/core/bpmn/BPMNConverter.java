@@ -16,7 +16,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelPackage;
 public class BPMNConverter {
 
     public JAXBElement<TDefinitions> convert(MetamodelPackage metamodel) {
-        FactoryTranslator factory = new FactoryTranslator();
+        Converter converter = FactoryConverter.getInstance();
         TranslatorState state = new TranslatorState();
 
         TDefinitions bpmnDefinitions = state.getModelFactory().createTDefinitions();
@@ -38,7 +38,7 @@ public class BPMNConverter {
         // de activiti, sequenceflow, etc..
 
         for (MetamodelElement element : metamodel.getElements()) {
-            Translator translator = factory.getTranslator(element);
+            ATranslator translator = converter.eval(element);
             JAXBElement<? extends TFlowElement> flowElement = translator.getFlowElement(element, state);
             JAXBElement<? extends DiagramElement> diagramElement = translator.getDiagramElement(element, state);
 

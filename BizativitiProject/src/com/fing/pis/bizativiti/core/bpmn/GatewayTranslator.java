@@ -13,12 +13,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelGateway;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelInclusiveGateway;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelParallelGateway;
 
-public class GatewayTranslator implements Translator {
-
-    @Override
-    public boolean canTranslate(Object o) {
-        return o instanceof MetamodelGateway;
-    }
+public class GatewayTranslator extends ATranslator {
 
     @Override
     public JAXBElement<? extends TFlowElement> getFlowElement(Object o, TranslatorState e) {

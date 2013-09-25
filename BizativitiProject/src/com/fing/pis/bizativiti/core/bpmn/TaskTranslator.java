@@ -14,13 +14,10 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelManualTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelUserTask;
 
-public class TaskTranslator implements Translator {
-
-    @Override
-    public boolean canTranslate(Object o) {
-        return o instanceof MetamodelTask;
-    }
-
+public class TaskTranslator extends ATranslator {
+    //////////////////////////////////////////////
+    /// Esto esta mal en el nuevo diseno!!!!!!!!!
+    //////////////////////////////////////////////
     @Override
     public JAXBElement<? extends TFlowElement> getFlowElement(Object o, TranslatorState e) {
         MetamodelTask task = (MetamodelTask) o;
@@ -41,17 +38,17 @@ public class TaskTranslator implements Translator {
             jaxbtask = e.getModelFactory().createTask(bpmnTask);
         }
         switch (task.getLoop()) {
-        case Multi:
-            bpmnTask.setLoopCharacteristics(e.getModelFactory().createLoopCharacteristics(
-                    e.getModelFactory().createTMultiInstanceLoopCharacteristics()));
-            break;
-        case Standard:
-            bpmnTask.setLoopCharacteristics(e.getModelFactory().createLoopCharacteristics(
-                    e.getModelFactory().createTStandardLoopCharacteristics()));
-            break;
-        default:
-            // En bpmn si el loop es none parece que no lleva nada.
-            break;
+            case Multi:
+                bpmnTask.setLoopCharacteristics(e.getModelFactory().createLoopCharacteristics(
+                        e.getModelFactory().createTMultiInstanceLoopCharacteristics()));
+                break;
+            case Standard:
+                bpmnTask.setLoopCharacteristics(e.getModelFactory().createLoopCharacteristics(
+                        e.getModelFactory().createTStandardLoopCharacteristics()));
+                break;
+            default:
+                // En bpmn si el loop es none parece que no lleva nada.
+                break;
         }
         bpmnTask.setId(task.getId());
         bpmnTask.setName(task.getName());

@@ -9,12 +9,7 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelConnector;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelSequenceFlow;
 
-public class SequenceTranslator implements Translator {
-
-    @Override
-    public boolean canTranslate(Object o) {
-        return o instanceof MetamodelSequenceFlow;
-    }
+public class SequenceTranslator extends ATranslator {
 
     @Override
     public JAXBElement<? extends TFlowElement> getFlowElement(Object o, TranslatorState e) {

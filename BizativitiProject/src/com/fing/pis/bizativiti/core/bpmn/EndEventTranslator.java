@@ -9,12 +9,7 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelEndEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 
-public class EndEventTranslator implements Translator {
-
-    @Override
-    public boolean canTranslate(Object o) {
-        return o instanceof MetamodelEndEvent;
-    }
+public class EndEventTranslator extends ATranslator {
 
     @Override
     public JAXBElement<? extends TFlowElement> getFlowElement(Object o, TranslatorState e) {
