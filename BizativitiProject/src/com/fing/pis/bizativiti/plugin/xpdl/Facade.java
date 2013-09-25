@@ -41,12 +41,10 @@ public class Facade implements IPlugin {
         return "xpdl";
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public List<MetamodelElement> parse(InputStream stream) {
         org.wfmc._2009.xpdl2.PackageType root = deserializeXML(stream);
-        Object result = converter.eval(root, new ArrayList<>());
-        return (List<MetamodelElement>) result;
+        return converter.eval(root, new ArrayList<>());
     }
 
     // TODO: verificar si pueden ocurrir casos en que el reader quede abierto y no se liberen recursos
