@@ -3,7 +3,7 @@ package com.fing.pis.bizativiti;
 import java.io.InputStream;
 import java.util.List;
 
-import com.fing.pis.bizativiti.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
 
 public interface IPlugin {
 

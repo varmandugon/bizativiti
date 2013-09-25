@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti.metamodel;
+package com.fing.pis.bizativiti.core.common.metamodel;
 
 public abstract class MetamodelElement {
 

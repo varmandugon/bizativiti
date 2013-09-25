@@ -2,7 +2,7 @@ package com.fing.pis.bizativiti.plugin.xpdl;
 
 import java.util.List;
 
-import com.fing.pis.bizativiti.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
 
 public abstract class ATranslator {
 

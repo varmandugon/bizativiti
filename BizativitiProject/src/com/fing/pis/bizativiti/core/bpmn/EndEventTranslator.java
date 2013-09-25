@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti.bpmnwriter;
+package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 
@@ -6,8 +6,8 @@ import org.omg.spec.bpmn._20100524.model.TEndEvent;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
-import com.fing.pis.bizativiti.metamodel.MetamodelEndEvent;
-import com.fing.pis.bizativiti.metamodel.MetamodelFlowElement;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelEndEvent;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelFlowElement;
 
 public class EndEventTranslator implements Translator {
 

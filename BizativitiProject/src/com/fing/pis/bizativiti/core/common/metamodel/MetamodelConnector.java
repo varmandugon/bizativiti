@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti.metamodel;
+package com.fing.pis.bizativiti.core.common.metamodel;
 
 import java.util.ArrayList;
 import java.util.List;

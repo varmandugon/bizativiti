@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti.bpmnwriter;
+package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 
@@ -8,11 +8,11 @@ import org.omg.spec.bpmn._20100524.model.TTask;
 import org.omg.spec.bpmn._20100524.model.TUserTask;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
-import com.fing.pis.bizativiti.metamodel.MetamodelElement;
-import com.fing.pis.bizativiti.metamodel.MetamodelFlowElement;
-import com.fing.pis.bizativiti.metamodel.MetamodelManualTask;
-import com.fing.pis.bizativiti.metamodel.MetamodelTask;
-import com.fing.pis.bizativiti.metamodel.MetamodelUserTask;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelFlowElement;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelManualTask;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelTask;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelUserTask;
 
 public class TaskTranslator implements Translator {
 

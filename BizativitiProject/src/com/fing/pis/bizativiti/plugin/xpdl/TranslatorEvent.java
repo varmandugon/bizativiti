@@ -3,9 +3,9 @@ package com.fing.pis.bizativiti.plugin.xpdl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fing.pis.bizativiti.metamodel.MetamodelElement;
-import com.fing.pis.bizativiti.metamodel.MetamodelEndEvent;
-import com.fing.pis.bizativiti.metamodel.MetamodelStartEvent;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelEndEvent;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelStartEvent;
 
 public class TranslatorEvent extends ATranslator {
 

@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti.bpmnwriter;
+package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 

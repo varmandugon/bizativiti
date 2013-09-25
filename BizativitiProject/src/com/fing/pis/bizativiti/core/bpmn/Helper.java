@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti.bpmnwriter;
+package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
@@ -8,9 +8,9 @@ import org.omg.spec.bpmn._20100524.di.BPMNShape;
 import org.omg.spec.dd._20100524.dc.Bounds;
 import org.omg.spec.dd._20100524.dc.Point;
 
-import com.fing.pis.bizativiti.metamodel.MetamodelConnector;
-import com.fing.pis.bizativiti.metamodel.MetamodelCoordinate;
-import com.fing.pis.bizativiti.metamodel.MetamodelFlowElement;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelConnector;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelCoordinate;
+import com.fing.pis.bizativiti.core.common.metamodel.MetamodelFlowElement;
 
 public class Helper {
 
