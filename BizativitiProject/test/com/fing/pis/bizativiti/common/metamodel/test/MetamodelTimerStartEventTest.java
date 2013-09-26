@@ -20,13 +20,29 @@ public class MetamodelTimerStartEventTest {
         assertEquals("85440c4a-5cad-4e7e-96af-e1240da74a34", timerStartEvent.getId());
         assertEquals("Evento de Inicio", timerStartEvent.getName());
         assertEquals("Descripcion del evento de inicio", timerStartEvent.getDescription());
-        xy = timerStartEvent.getCoordinate().getX();
-        xy = timerStartEvent.getCoordinate().getY();
-        hw = timerStartEvent.getHeight();
-        hw = timerStartEvent.getWidth();
+        setXy(timerStartEvent.getCoordinate().getX());
+        setXy(timerStartEvent.getCoordinate().getY());
+        setHw(timerStartEvent.getHeight());
+        setHw(timerStartEvent.getWidth());
         assertEquals("TimeDate", timerStartEvent.getTrigger());
         assertEquals("2013-09-25T00:00:00", timerStartEvent.getTriggerAttr());
 
+    }
+
+    public double getXy() {
+        return xy;
+    }
+
+    public void setXy(double xy) {
+        this.xy = xy;
+    }
+
+    public double getHw() {
+        return hw;
+    }
+
+    public void setHw(double hw) {
+        this.hw = hw;
     }
 
 }

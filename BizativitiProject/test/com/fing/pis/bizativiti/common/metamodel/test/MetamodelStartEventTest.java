@@ -19,10 +19,26 @@ public class MetamodelStartEventTest {
         assertEquals("85440c4a-5cad-4e7e-96af-e1240da74a34", startEvent.getId());
         assertEquals("Evento de Inicio", startEvent.getName());
         assertEquals("Descripcion del evento de inicio", startEvent.getDescription());
-        xy = startEvent.getCoordinate().getX();
-        xy = startEvent.getCoordinate().getY();
-        hw = startEvent.getHeight();
-        hw = startEvent.getWidth();
+        setXy(startEvent.getCoordinate().getX());
+        setXy(startEvent.getCoordinate().getY());
+        setHw(startEvent.getHeight());
+        setHw(startEvent.getWidth());
+    }
+
+    public double getXy() {
+        return xy;
+    }
+
+    public void setXy(double xy) {
+        this.xy = xy;
+    }
+
+    public double getHw() {
+        return hw;
+    }
+
+    public void setHw(double hw) {
+        this.hw = hw;
     }
 
 }

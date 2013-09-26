@@ -20,12 +20,28 @@ public class MetamodelTerminateEndEventTest {
         assertEquals("85440c4a-5cad-4e7e-96af-e1240da74a34", terminateEndEvent.getId());
         assertEquals("Evento de Inicio", terminateEndEvent.getName());
         assertEquals("Descripcion del evento de inicio", terminateEndEvent.getDescription());
-        xy = terminateEndEvent.getCoordinate().getX();
-        xy = terminateEndEvent.getCoordinate().getY();
-        hw = terminateEndEvent.getHeight();
-        hw = terminateEndEvent.getWidth();
+        setXy(terminateEndEvent.getCoordinate().getX());
+        setXy(terminateEndEvent.getCoordinate().getY());
+        setHw(terminateEndEvent.getHeight());
+        setHw(terminateEndEvent.getWidth());
         assertEquals("Resutl", terminateEndEvent.getResult());
 
+    }
+
+    public double getXy() {
+        return xy;
+    }
+
+    public void setXy(double xy) {
+        this.xy = xy;
+    }
+
+    public double getHw() {
+        return hw;
+    }
+
+    public void setHw(double hw) {
+        this.hw = hw;
     }
 
 }
