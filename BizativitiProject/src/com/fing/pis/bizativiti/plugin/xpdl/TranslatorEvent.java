@@ -35,7 +35,8 @@ public class TranslatorEvent extends ATranslator {
         } else if (event.getIntermediateEvent() != null) {
             throw new RuntimeException("IntermediateEvent not implemented yet");
         } else if (event.getEndEvent() != null) {
-            item = new MetamodelEndEvent(id, name, description, x, y, width, height, lane);
+            String s = null;
+            item = new MetamodelEndEvent(id, name, description, x, y, width, height, lane, s);
         } else {
             throw new RuntimeException("No events inside Event tag");
         }

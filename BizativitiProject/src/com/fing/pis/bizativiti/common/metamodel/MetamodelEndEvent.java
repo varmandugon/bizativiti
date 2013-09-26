@@ -2,8 +2,20 @@ package com.fing.pis.bizativiti.common.metamodel;
 
 public class MetamodelEndEvent extends MetamodelEvent {
 
-    public MetamodelEndEvent(String id, String name, String description, double x, double y, double width, double height, String lane) {
+    private String result;
+
+    public MetamodelEndEvent(String id, String name, String description, double x, double y, double width,
+            double height, String lane, String sResult) {
         super(id, name, description, x, y, width, height, lane);
+        setResult(sResult);
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 
 }
