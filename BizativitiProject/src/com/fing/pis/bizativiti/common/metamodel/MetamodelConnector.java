@@ -8,8 +8,10 @@ public abstract class MetamodelConnector extends MetamodelElement {
     private MetamodelFlowElement from;
     private MetamodelFlowElement to;
     private List<MetamodelCoordinate> coordinates;
+    private String name;
 
-    public MetamodelConnector(String id, String description, MetamodelFlowElement to, MetamodelFlowElement from) {
+    public MetamodelConnector(String id, String description, MetamodelFlowElement to, MetamodelFlowElement from,
+            String name, List<MetamodelCoordinate> coordinates) {
         super(id, description);
         this.to = to;
         if (this.to == null) {
@@ -21,6 +23,8 @@ public abstract class MetamodelConnector extends MetamodelElement {
         }
 
         this.coordinates = new ArrayList<MetamodelCoordinate>();
+        setCoordinates(coordinates);
+        this.name = name;
     }
 
     public List<MetamodelCoordinate> getCoordinates() {
@@ -49,6 +53,14 @@ public abstract class MetamodelConnector extends MetamodelElement {
 
     public void setTo(MetamodelFlowElement to) {
         this.to = to;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

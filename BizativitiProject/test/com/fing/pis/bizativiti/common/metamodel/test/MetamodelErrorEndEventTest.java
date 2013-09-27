@@ -14,12 +14,12 @@ public class MetamodelErrorEndEventTest {
     @Test
     public void testLoad() throws Exception {
         MetamodelErrorEndEvent errorEndEvent = new MetamodelErrorEndEvent("85440c4a-5cad-4e7e-96af-e1240da74a34",
-                "Evento de Inicio", "Descripcion del evento de inicio", 3, 3, 1, 1, "Lane del evento de inicio",
-                "Resutl", "Codigo de Error");
+                "Evento de Error", "Descripcion del evento de Error", 3, 3, 1, 1, "Lane del evento de Error", "Resutl",
+                "Codigo de Error");
 
         assertEquals("85440c4a-5cad-4e7e-96af-e1240da74a34", errorEndEvent.getId());
-        assertEquals("Evento de Inicio", errorEndEvent.getName());
-        assertEquals("Descripcion del evento de inicio", errorEndEvent.getDescription());
+        assertEquals("Evento de Error", errorEndEvent.getName());
+        assertEquals("Descripcion del evento de Error", errorEndEvent.getDescription());
         setXy(errorEndEvent.getCoordinate().getX());
         setXy(errorEndEvent.getCoordinate().getY());
         setHw(errorEndEvent.getHeight());
