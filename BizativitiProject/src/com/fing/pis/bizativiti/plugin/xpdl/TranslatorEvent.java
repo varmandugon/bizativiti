@@ -28,10 +28,11 @@ public class TranslatorEvent extends ATranslator {
         double width = 0; // TODO
         double height = 0; // TODO
         String lane = ""; // TODO
+        String trigger = ""; //TODO
 
         // vemos que tipo de evento estamos tratando
         if (event.getStartEvent() != null) {
-            item = new MetamodelStartEvent(id, name, description, x, y, width, height, lane);
+            item = new MetamodelStartEvent(id, name, description, x, y, width, height, lane, trigger);
         } else if (event.getIntermediateEvent() != null) {
             throw new RuntimeException("IntermediateEvent not implemented yet");
         } else if (event.getEndEvent() != null) {
