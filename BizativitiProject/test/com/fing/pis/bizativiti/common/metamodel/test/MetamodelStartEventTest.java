@@ -14,11 +14,12 @@ public class MetamodelStartEventTest {
     @Test
     public void testLoad() throws Exception {
         MetamodelStartEvent startEvent = new MetamodelStartEvent("85440c4a-5cad-4e7e-96af-e1240da74a34",
-                "Evento de Inicio", "Descripcion del evento de inicio", 3, 3, 1, 1, "Lane del evento de inicio");
+                "Evento de Inicio", "Descripcion del evento de inicio", 3, 3, 1, 1, "Lane del evento de inicio", "None");
 
         assertEquals("85440c4a-5cad-4e7e-96af-e1240da74a34", startEvent.getId());
         assertEquals("Evento de Inicio", startEvent.getName());
         assertEquals("Descripcion del evento de inicio", startEvent.getDescription());
+        assertEquals("None", startEvent.getTrigger());
         setXy(startEvent.getCoordinate().getX());
         setXy(startEvent.getCoordinate().getY());
         setHw(startEvent.getHeight());

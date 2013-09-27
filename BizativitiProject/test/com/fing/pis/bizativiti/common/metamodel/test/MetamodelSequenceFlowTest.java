@@ -21,7 +21,7 @@ public class MetamodelSequenceFlowTest {
     public void testLoad() throws Exception {
 
         MetamodelStartEvent startEvent = new MetamodelStartEvent("11111c1a-1cad-1e1e-11af-e111da11a11",
-                "Evento de Inicio", "Descripcion del evento de inicio", 3, 3, 1, 1, "Lane del evento de inicio");
+                "Evento de Inicio", "Descripcion del evento de inicio", 3, 3, 1, 1, "Lane del evento de inicio", "None");
 
         MetamodelErrorEndEvent errorEndEvent = new MetamodelErrorEndEvent("22222c2a-2cad-2e2e-22af-e2222da22a22",
                 "Evento de error", "Descripcion del evento de inicio", 3, 3, 1, 1, "Lane del evento de error",
