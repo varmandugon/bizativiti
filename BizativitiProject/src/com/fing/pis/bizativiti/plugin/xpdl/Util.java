@@ -1,5 +1,9 @@
 package com.fing.pis.bizativiti.plugin.xpdl;
 
+import java.util.ArrayList;
+
+import org.wfmc._2009.xpdl2.NodeGraphicsInfo;
+import org.wfmc._2009.xpdl2.NodeGraphicsInfos;
 import org.wfmc._2009.xpdl2.StartEvent;
 import org.wfmc._2009.xpdl2.TriggerResultMessage;
 import org.wfmc._2009.xpdl2.TriggerTimer;
@@ -69,4 +73,73 @@ public class Util {
         }
     }
 
+    public static double getX(org.wfmc._2009.xpdl2.Activity activity) {
+        if (activity.getContent() != null) {
+            if (activity.getContent().get(3) != null) {
+                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
+                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                return node.get(0).getCoordinates().getXCoordinate();
+            } else {
+                throw new RuntimeException("No content inside activity tag");
+            }
+        } else {
+            throw new RuntimeException("No NodeGraphics inside activity tag");
+        }
+    }
+
+    public static double getY(org.wfmc._2009.xpdl2.Activity activity) {
+        if (activity.getContent() != null) {
+            if (activity.getContent().get(3)  != null) {
+                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
+                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                return node.get(0).getCoordinates().getYCoordinate();
+            } else {
+                throw new RuntimeException("No content inside activity tag");
+            }
+        } else {
+            throw new RuntimeException("No NodeGraphics inside activity tag");
+        }
+    }
+
+    public static String getLaneId(org.wfmc._2009.xpdl2.Activity activity) {
+        if (activity.getContent() != null) {
+            if (activity.getContent().get(3) != null) {
+                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
+                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                return node.get(0).getLaneId();
+            } else {
+                throw new RuntimeException("No content inside activity tag");
+            }
+        } else {
+            throw new RuntimeException("No NodeGraphics inside activity tag");
+        }
+    }
+
+    public static double getHeight(org.wfmc._2009.xpdl2.Activity activity) {
+        if (activity.getContent() != null) {
+            if (activity.getContent().get(3) != null) {
+                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
+                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                return node.get(0).getHeight();
+            } else {
+                throw new RuntimeException("No content inside activity tag");
+            }
+        } else {
+            throw new RuntimeException("No NodeGraphics inside activity tag");
+        }
+    }
+
+    public static double getWidth(org.wfmc._2009.xpdl2.Activity activity) {
+        if (activity.getContent() != null) {
+            if (activity.getContent().get(3) != null) {
+                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
+                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                return node.get(0).getWidth();
+            } else {
+                throw new RuntimeException("No content inside activity tag");
+            }
+        } else {
+            throw new RuntimeException("No NodeGraphics inside activity tag");
+        }
+    }
 }
