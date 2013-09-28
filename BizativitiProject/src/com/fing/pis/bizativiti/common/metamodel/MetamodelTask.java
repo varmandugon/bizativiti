@@ -6,7 +6,6 @@ public class MetamodelTask extends MetamodelFlowElement {
         None, Standard, Multi
     };
 
-    private String pool;
     private String lane;
     private LoopType loop;
 
@@ -14,10 +13,6 @@ public class MetamodelTask extends MetamodelFlowElement {
             LoopType loop, String pool, String lane) {
         super(id, name, description, x, y, width, height);
         this.loop = loop;
-        if (pool == null) {
-            throw new IllegalArgumentException("pool can't be null");
-        }
-        this.pool = pool;
         if (lane == null) {
             throw new IllegalArgumentException("lane can't be null");
         }
@@ -27,10 +22,6 @@ public class MetamodelTask extends MetamodelFlowElement {
 
     public LoopType getLoop() {
         return loop;
-    }
-
-    public String getPool() {
-        return pool;
     }
 
     public String getLane() {
