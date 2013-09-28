@@ -19,11 +19,12 @@ public class TranslatorStartEvent extends ATranslator {
         String id = Util.getId(parent);
         String name = Util.getName(parent);
         String description = Util.getDescription(parent);
-        double x = 0; // TODO
-        double y = 0; // TODO
-        double width = 0; // TODO
-        double height = 0; // TODO
-        String lane = ""; // TODO
+
+        double x = Util.getX(parent);
+        double y = Util.getY(parent); 
+        double width = Util.getWidth(parent); 
+        double height = Util.getHeight(parent); 
+        String lane = Util.getLaneId(parent); 
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
         // vemos que tipo de evento inicio estamos tratando
@@ -33,16 +34,16 @@ public class TranslatorStartEvent extends ATranslator {
                     lane, sTrigger);
             result.add(itemStartEvent);
         } else if (sTrigger == "Timer") {
-					String triggerType = Util.getTriggerType(event);
-					String sTriggerAttr = Util.getTriggerAttrTimer(event);
-					MetamodelTimerStartEvent itemTimerStart = new MetamodelTimerStartEvent(id, name, description, x, y, width,
-							height, lane, sTrigger, triggerType, sTriggerAttr);
-					result.add(itemTimerStart);
+            String triggerType = Util.getTriggerType(event);
+            String sTriggerAttr = Util.getTriggerAttrTimer(event);
+            MetamodelTimerStartEvent itemTimerStart = new MetamodelTimerStartEvent(id, name, description, x, y, width,
+                    height, lane, sTrigger, triggerType, sTriggerAttr);
+            result.add(itemTimerStart);
         } else if (sTrigger == "Message") {
-					String sMessageId = Util.getMessageId(event);
-					MetamodelMessageStartEvent itemMessageStart = new MetamodelMessageStartEvent(id, name, description, x, y,
-							width, height, lane, sTrigger, sMessageId);
-					result.add(itemMessageStart);
+            String sMessageId = Util.getMessageId(event);
+            MetamodelMessageStartEvent itemMessageStart = new MetamodelMessageStartEvent(id, name, description, x, y,
+                    width, height, lane, sTrigger, sMessageId);
+            result.add(itemMessageStart);
         } else {
             throw new RuntimeException("No Events inside StartEvents tag");
         }
