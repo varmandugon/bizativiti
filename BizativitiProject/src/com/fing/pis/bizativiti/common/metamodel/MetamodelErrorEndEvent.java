@@ -1,23 +1,13 @@
 package com.fing.pis.bizativiti.common.metamodel;
 
-public class MetamodelErrorEndEvent extends MetamodelEvent {
+public class MetamodelErrorEndEvent extends MetamodelEndEvent {
 
-    private String result;
     private String errorCode;
 
     public MetamodelErrorEndEvent(String id, String name, String description, double x, double y, double width,
-            double height, String lane, String sResult, String sErrorCode) {
-        super(id, name, description, x, y, width, height, lane);
-        setResult(sResult);
-        setErrorCode(sErrorCode);
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
+            double height, String lane, String result, String errorCode) {
+        super(id, name, description, x, y, width, height, lane, result);
+        setErrorCode(errorCode);
     }
 
     public String getErrorCode() {
