@@ -5,9 +5,9 @@ public class MetamodelEndEvent extends MetamodelEvent {
     private String result;
 
     public MetamodelEndEvent(String id, String name, String description, double x, double y, double width,
-            double height, String lane, String sResult) {
+            double height, String lane, String result) {
         super(id, name, description, x, y, width, height, lane);
-        setResult(sResult);
+        setResult(result);
     }
 
     public String getResult() {
