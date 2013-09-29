@@ -2,6 +2,7 @@ package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 
+import org.omg.spec.bpmn._20100524.model.TDocumentation;
 import org.omg.spec.bpmn._20100524.model.TExpression;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.bpmn._20100524.model.TStartEvent;
@@ -16,11 +17,17 @@ public class TimerStartEventTranslator {
 
     // @Override
     public JAXBElement<? extends TFlowElement> getFlowElement(Object o, TranslatorState e) {
+
         MetamodelStartEvent event = (MetamodelStartEvent) o;
 
         TStartEvent startEvent = e.getModelFactory().createTStartEvent();
         startEvent.setId(event.getId());
         startEvent.setName(event.getName());
+        if (event.getDescription() != null) {
+            TDocumentation documentation = new TDocumentation();
+            documentation.getContent().add(event.getDescription());
+            startEvent.getDocumentation().add(documentation);
+        }
 
         //agrego date o cycle
         MetamodelTimerStartEvent timerevent = (MetamodelTimerStartEvent) o;
@@ -30,7 +37,7 @@ public class TimerStartEventTranslator {
             TExpression exp = new TExpression();
             exp.setId(timerevent.getTriggerAttr());
             timer.setTimeDate(exp);
-        } else {
+        } else if (timerevent.getTriggeType().equals("TimeCycle")) {
             TExpression exp = new TExpression();
             exp.setId(timerevent.getTriggerAttr());
             timer.setTimeCycle(exp);
