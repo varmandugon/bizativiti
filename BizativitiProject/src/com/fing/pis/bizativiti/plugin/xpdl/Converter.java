@@ -30,7 +30,7 @@ public class Converter {
     }
 
     public List<MetamodelElement> start(Object rootNode) {
-        return new ParserConverter().eval(rootNode, new ArrayList<>());
+        return new ParserConverter().eval(rootNode, new ArrayList<Object>());
     }
 
     public class ParserConverter {
