@@ -13,8 +13,8 @@ import org.wfmc._2009.xpdl2.TaskUser;
 import org.wfmc._2009.xpdl2.WebServiceOperation;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
-import com.fing.pis.bizativiti.common.metamodel.MetamodelServiceTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTask.LoopType;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelUserTask;
 import com.fing.pis.bizativiti.plugin.xpdl.ATranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 import com.fing.pis.bizativiti.plugin.xpdl.Util;
@@ -51,8 +51,7 @@ public class TranslatorTareaUsuario extends ATranslator {
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
-        MetamodelElement task = new MetamodelServiceTask(id, name, description, x, y, width, height, loopType, null,
-                lane);
+        MetamodelElement task = new MetamodelUserTask(id, name, description, x, y, width, height, loopType, null, lane);
 
         result.add(task);
 
