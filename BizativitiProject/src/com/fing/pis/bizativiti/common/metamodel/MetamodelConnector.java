@@ -14,13 +14,13 @@ public abstract class MetamodelConnector extends MetamodelElement {
             String name, List<MetamodelCoordinate> coordinates) {
         super(id, description);
         this.to = to;
-        //        if (this.to == null) {
-        //            throw new IllegalArgumentException("To Element of connector " + id + " is null");
-        //        }
-        //        this.from = from;
-        //        if (this.from == null) {
-        //            throw new IllegalArgumentException("From Element of connector " + id + " is null");
-        //        }
+        if (this.to == null) {
+            throw new IllegalArgumentException("To Element of connector " + id + " is null");
+        }
+        this.from = from;
+        if (this.from == null) {
+            throw new IllegalArgumentException("From Element of connector " + id + " is null");
+        }
 
         this.coordinates = new ArrayList<MetamodelCoordinate>();
         setCoordinates(coordinates);
