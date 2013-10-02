@@ -23,23 +23,42 @@ public class Converter {
         public Converter create() {
             return new Converter(this);
         }
-
     }
 
     private Converter(Builder builder) {
         translators = Collections.unmodifiableMap(builder.translators);
     }
 
-    public List<MetamodelElement> eval(Object node, List<Object> pathFromRootWithoutNode) {
-        // vemos si existe un translator para el nodo
-        ATranslator trans = translators.get(node.getClass());
-        if (trans == null) {
-            throw new IllegalArgumentException("No se agregaron translators para nodos del tipo " + node.getClass());
+    public List<MetamodelElement> start(Object rootNode) {
+        return new ParserConverter().eval(rootNode, new ArrayList<>());
+    }
+
+    public class ParserConverter {
+
+        Map<String, MetamodelElement> convertedElements = new HashMap<String, MetamodelElement>();
+
+        private ParserConverter() {}
+
+        public List<MetamodelElement> eval(Object node, List<Object> pathFromRootWithoutNode) {
+            // vemos si existe un translator para el nodo
+            ATranslator trans = translators.get(node.getClass());
+            if (trans == null) {
+                throw new IllegalArgumentException("No se agregaron translators para nodos del tipo " + node.getClass());
+            }
+            // construimos el camino hacia el elemento (incluyendolo)
+            List<Object> pathFromRoot = new ArrayList<Object>(pathFromRootWithoutNode);
+            pathFromRoot.add(node);
+            return trans.translate(this, node, Collections.unmodifiableList(pathFromRoot));
         }
-        // construimos el camino hacia el elemento (incluyendolo)
-        List<Object> pathFromRoot = new ArrayList<Object>(pathFromRootWithoutNode);
-        pathFromRoot.add(node);
-        return trans.translate(this, node, Collections.unmodifiableList(pathFromRoot));
+
+        public MetamodelElement getElementById(String id) {
+            MetamodelElement result = convertedElements.get(id);
+            if (result == null) {
+                throw new IllegalArgumentException("Element with id '" + id + "' wasn't converted");
+            }
+            return result;
+        }
+
     }
 
 }

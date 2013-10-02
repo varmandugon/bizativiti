@@ -6,11 +6,12 @@ import java.util.List;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelAssociation;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelCoordinate;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 
 public class TranslatorAssociation extends ATranslator {
 
     @Override
-    public List<MetamodelElement> translate(Converter f, Object node, List<Object> pathFromRoot) {
+    public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
         org.wfmc._2009.xpdl2.Association association = (org.wfmc._2009.xpdl2.Association) node;
         List<MetamodelElement> resultList = new ArrayList<MetamodelElement>();
 

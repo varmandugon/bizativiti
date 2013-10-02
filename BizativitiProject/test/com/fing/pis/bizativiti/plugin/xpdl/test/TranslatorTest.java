@@ -17,6 +17,7 @@ public class TranslatorTest {
     @Test
     public void testLoad() throws Exception {
         InputStream is = new FileInputStream("resources/startevent.xpdl");
+        //        InputStream is = new FileInputStream("resources/fabrica_de_credito.xpdl");
         Facade xpdlPlugin = new Facade();
         List<MetamodelElement> items = xpdlPlugin.parse(is);
         assertEquals(1, items.size());

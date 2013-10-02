@@ -22,7 +22,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelMessageStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTimerStartEvent;
-import com.fing.pis.bizativiti.plugin.xpdl.Converter;
+import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 import com.fing.pis.bizativiti.plugin.xpdl.TranslatorStartEvent;
 
 public class TestEvents {
@@ -80,7 +80,7 @@ public class TestEvents {
         pathFromRoot.add(event);
         pathFromRoot.add(startE);
 
-        Converter f = null; //se lo pasa por parametro, pero no se usa
+        ParserConverter f = null; //se lo pasa por parametro, pero no se usa
         TranslatorStartEvent translator = new TranslatorStartEvent();
         List<MetamodelElement> items = translator.translate(f, startE, pathFromRoot);
 
@@ -157,7 +157,7 @@ public class TestEvents {
         pathFromRoot.add(event);
         pathFromRoot.add(startE);
 
-        Converter f = null; //se lo pasa por parametro, pero no se usa
+        ParserConverter f = null; //se lo pasa por parametro, pero no se usa
         TranslatorStartEvent translator = new TranslatorStartEvent();
         List<MetamodelElement> items = translator.translate(f, startE, pathFromRoot);
 
@@ -237,7 +237,7 @@ public class TestEvents {
         pathFromRoot.add(event);
         pathFromRoot.add(startE);
 
-        Converter f = null; //se lo pasa por parametro, pero no se usa
+        ParserConverter f = null; //se lo pasa por parametro, pero no se usa
         TranslatorStartEvent translator = new TranslatorStartEvent();
         List<MetamodelElement> items = translator.translate(f, startE, pathFromRoot);
 
@@ -324,7 +324,7 @@ public class TestEvents {
         pathFromRoot.add(event);
         pathFromRoot.add(startE);
 
-        Converter f = null; //se lo pasa por parametro, pero no se usa
+        ParserConverter f = null; //se lo pasa por parametro, pero no se usa
         TranslatorStartEvent translator = new TranslatorStartEvent();
         List<MetamodelElement> items = translator.translate(f, startE, pathFromRoot);
 

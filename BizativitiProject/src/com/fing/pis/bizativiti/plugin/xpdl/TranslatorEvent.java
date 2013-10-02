@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 
 public class TranslatorEvent extends ATranslator {
 
-    // TODO: aquí debemos ver que tipo de event estamos manejando.
+    // TODO: aquï¿½ debemos ver que tipo de event estamos manejando.
     // Los datos relacionados al event se encuentran en el padre del elemento
     @Override
-    public List<MetamodelElement> translate(Converter f, Object node, List<Object> pathFromRoot) {
+    public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
         org.wfmc._2009.xpdl2.Event event = (org.wfmc._2009.xpdl2.Event) node;
 
         List<MetamodelElement> items = new ArrayList<MetamodelElement>();

@@ -1,7 +1,6 @@
 package com.fing.pis.bizativiti.plugin.xpdl;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -48,7 +47,7 @@ public class Facade implements IPlugin {
     @Override
     public List<MetamodelElement> parse(InputStream stream) {
         org.wfmc._2009.xpdl2.PackageType root = deserializeXML(stream);
-        return converter.eval(root, new ArrayList<>());
+        return converter.start(root);
     }
 
     // TODO: verificar si pueden ocurrir casos en que el reader quede abierto y no se liberen recursos

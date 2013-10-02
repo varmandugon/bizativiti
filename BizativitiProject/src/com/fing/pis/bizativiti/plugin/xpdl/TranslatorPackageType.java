@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 
 /**
  * Translator de {@link org.wfmc._2009.xpdl2.PackageType}
@@ -17,7 +18,7 @@ public class TranslatorPackageType extends ATranslator {
      * solo tomamos en cuenta el nodo WorkflowProcesses
      */
     @Override
-    public List<MetamodelElement> translate(Converter f, Object node, List<Object> pathFromRoot) {
+    public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
         org.wfmc._2009.xpdl2.PackageType packageType = (org.wfmc._2009.xpdl2.PackageType) node;
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
         Object childNode = packageType.getWorkflowProcesses();

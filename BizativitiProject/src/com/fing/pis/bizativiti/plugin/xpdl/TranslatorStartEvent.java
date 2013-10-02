@@ -7,11 +7,12 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelMessageStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTimerStartEvent;
+import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 
 public class TranslatorStartEvent extends ATranslator {
 
     @Override
-    public List<MetamodelElement> translate(Converter f, Object node, List<Object> pathFromRoot) {
+    public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
         org.wfmc._2009.xpdl2.StartEvent event = (org.wfmc._2009.xpdl2.StartEvent) node;
         org.wfmc._2009.xpdl2.Activity parent = (org.wfmc._2009.xpdl2.Activity) pathFromRoot
                 .get(pathFromRoot.size() - 3);
@@ -21,10 +22,10 @@ public class TranslatorStartEvent extends ATranslator {
         String description = Util.getDescription(parent);
 
         double x = Util.getX(parent);
-        double y = Util.getY(parent); 
-        double width = Util.getWidth(parent); 
-        double height = Util.getHeight(parent); 
-        String lane = Util.getLaneId(parent); 
+        double y = Util.getY(parent);
+        double width = Util.getWidth(parent);
+        double height = Util.getHeight(parent);
+        String lane = Util.getLaneId(parent);
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
         // vemos que tipo de evento inicio estamos tratando

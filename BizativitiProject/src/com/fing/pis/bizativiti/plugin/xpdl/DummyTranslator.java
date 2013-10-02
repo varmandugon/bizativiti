@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 
 /**
  * Translator dummy.
@@ -27,7 +28,7 @@ public class DummyTranslator extends ATranslator {
     }
 
     @Override
-    public List<MetamodelElement> translate(Converter f, Object node, List<Object> pathFromRoot) {
+    public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
         return new ArrayList<MetamodelElement>();
     }
 
