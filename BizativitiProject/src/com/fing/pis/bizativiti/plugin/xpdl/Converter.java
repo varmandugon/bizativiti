@@ -48,7 +48,15 @@ public class Converter {
             // construimos el camino hacia el elemento (incluyendolo)
             List<Object> pathFromRoot = new ArrayList<Object>(pathFromRootWithoutNode);
             pathFromRoot.add(node);
-            return trans.translate(this, node, Collections.unmodifiableList(pathFromRoot));
+            List<MetamodelElement> translatedElements = trans.translate(this, node,
+                    Collections.unmodifiableList(pathFromRoot));
+            for (MetamodelElement element : translatedElements) {
+                if (convertedElements.get(element.getId()) != null) {
+                    throw new RuntimeException("Already translated element with id " + element.getId());
+                }
+                convertedElements.put(element.getId(), element);
+            }
+            return translatedElements;
         }
 
         public MetamodelElement getElementById(String id) {
