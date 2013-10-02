@@ -17,7 +17,7 @@ public class TranslatorImplementation extends ATranslator {
         Implementation implementation = (Implementation) node;
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
-        result.addAll(f.eval(implementation, pathFromRoot));
+        result.addAll(f.eval(implementation.getTask(), pathFromRoot));
 
         return result;
     }

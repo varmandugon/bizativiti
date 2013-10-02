@@ -2,11 +2,16 @@ package com.fing.pis.bizativiti.plugin.xpdl;
 
 import java.util.ArrayList;
 
+import org.wfmc._2009.xpdl2.Activity;
+import org.wfmc._2009.xpdl2.Description;
+import org.wfmc._2009.xpdl2.Loop;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfo;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfos;
 import org.wfmc._2009.xpdl2.StartEvent;
 import org.wfmc._2009.xpdl2.TriggerResultMessage;
 import org.wfmc._2009.xpdl2.TriggerTimer;
+
+import com.fing.pis.bizativiti.common.metamodel.MetamodelTask.LoopType;
 
 /**
  * Clase con métodos auxiliares utilizados por los translators
@@ -15,20 +20,20 @@ public class Util {
 
     private Util() {}
 
-    public static String getDescription(org.wfmc._2009.xpdl2.Activity activity) {
+    public static String getDescription(Activity activity) {
         for (Object child : activity.getContent()) {
-            if (child instanceof org.wfmc._2009.xpdl2.Description) {
-                return ((org.wfmc._2009.xpdl2.Description) child).getValue();
+            if (child instanceof Description) {
+                return ((Description) child).getValue();
             }
         }
         throw new RuntimeException("Description not found in activity");
     }
 
-    public static String getId(org.wfmc._2009.xpdl2.Activity activity) {
+    public static String getId(Activity activity) {
         return activity.getId();
     }
 
-    public static String getName(org.wfmc._2009.xpdl2.Activity activity) {
+    public static String getName(Activity activity) {
         return activity.getName();
     }
 
@@ -73,7 +78,7 @@ public class Util {
         }
     }
 
-    public static double getX(org.wfmc._2009.xpdl2.Activity activity) {
+    public static double getX(Activity activity) {
         if (activity.getContent() != null) {
             if (activity.getContent().get(3) != null) {
                 NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
@@ -87,9 +92,9 @@ public class Util {
         }
     }
 
-    public static double getY(org.wfmc._2009.xpdl2.Activity activity) {
+    public static double getY(Activity activity) {
         if (activity.getContent() != null) {
-            if (activity.getContent().get(3)  != null) {
+            if (activity.getContent().get(3) != null) {
                 NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
                 ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
                 return node.get(0).getCoordinates().getYCoordinate();
@@ -101,7 +106,7 @@ public class Util {
         }
     }
 
-    public static String getLaneId(org.wfmc._2009.xpdl2.Activity activity) {
+    public static String getLaneId(Activity activity) {
         if (activity.getContent() != null) {
             if (activity.getContent().get(3) != null) {
                 NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
@@ -115,7 +120,7 @@ public class Util {
         }
     }
 
-    public static double getHeight(org.wfmc._2009.xpdl2.Activity activity) {
+    public static double getHeight(Activity activity) {
         if (activity.getContent() != null) {
             if (activity.getContent().get(3) != null) {
                 NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
@@ -129,7 +134,7 @@ public class Util {
         }
     }
 
-    public static double getWidth(org.wfmc._2009.xpdl2.Activity activity) {
+    public static double getWidth(Activity activity) {
         if (activity.getContent() != null) {
             if (activity.getContent().get(3) != null) {
                 NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
@@ -141,5 +146,23 @@ public class Util {
         } else {
             throw new RuntimeException("No NodeGraphics inside activity tag");
         }
+    }
+
+    public static LoopType getLoopTipe(Activity activity) {
+        LoopType result = LoopType.None;
+        for (Object child : activity.getContent()) {
+            if (child instanceof Loop) {
+                Loop l = (Loop) child;
+                if ("None".equals(l.getLoopType())) {
+                    result = LoopType.None;
+                } else if ("Multi".equals(l.getLoopType())) {
+                    result = LoopType.Multi;
+                } else if ("Standard".equals(l.getLoopType())) {
+                    result = LoopType.Standard;
+                }
+                break;
+            }
+        }
+        return result;
     }
 }

@@ -2,6 +2,8 @@ package com.fing.pis.bizativiti.common.metamodel;
 
 public class MetamodelTask extends MetamodelFlowElement {
 
+    //FIXME: Me parece que falta agregarle implementacion o atributos adicionales. Ver para la siguiente fase.
+
     public enum LoopType {
         None, Standard, Multi
     };
