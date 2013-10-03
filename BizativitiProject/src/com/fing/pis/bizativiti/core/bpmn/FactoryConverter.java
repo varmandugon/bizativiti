@@ -7,10 +7,10 @@ public class FactoryConverter {
     private static Converter converter = null;
 
     public static Converter getInstance() {
+
         if (converter == null) {
             Builder builder = new Builder();
             // Poner aca los adds al builder.
-
             converter = builder.create();
         }
         return converter;

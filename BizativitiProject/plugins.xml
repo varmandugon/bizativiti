@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Records>
+    <PluginRecord>
+        <Name>Plugin 1</Name>
+        <Jar>Path to jar 1</Jar>
+        <ClassName>Class Name 1</ClassName>
+    </PluginRecord>
+    <PluginRecord>
+        <Name>Plugin 2</Name>
+        <Jar>Path to jar 2</Jar>
+        <ClassName>Class Name 2</ClassName>
+    </PluginRecord>
+</Records>
