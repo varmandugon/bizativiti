@@ -48,7 +48,7 @@ public class TranslatorTareaEnvio extends ATranslator {
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
-        MetamodelElement task = new MetamodelSendTask(id, name, description, x, y, width, height, loopType, null, lane);
+        MetamodelElement task = new MetamodelSendTask(id, name, description, x, y, width, height, lane, loopType);
 
         result.add(task);
 

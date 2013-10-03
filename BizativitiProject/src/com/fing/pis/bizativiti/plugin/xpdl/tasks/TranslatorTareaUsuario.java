@@ -51,7 +51,7 @@ public class TranslatorTareaUsuario extends ATranslator {
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
-        MetamodelElement task = new MetamodelUserTask(id, name, description, x, y, width, height, loopType, null, lane);
+        MetamodelElement task = new MetamodelUserTask(id, name, description, x, y, width, height, lane, loopType);
 
         result.add(task);
 

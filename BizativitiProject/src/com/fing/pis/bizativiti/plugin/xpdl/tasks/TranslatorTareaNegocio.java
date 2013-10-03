@@ -41,8 +41,7 @@ public class TranslatorTareaNegocio extends ATranslator {
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
-        MetamodelElement task = new MetamodelBusinessTask(id, name, description, x, y, width, height, loopType, null,
-                lane);
+        MetamodelElement task = new MetamodelBusinessTask(id, name, description, x, y, width, height, lane, loopType);
 
         result.add(task);
 
