@@ -14,11 +14,11 @@ public class MetamodelTask extends MetamodelFlowElement {
     public MetamodelTask(String id, String name, String description, double x, double y, double width, double height,
             String lane, LoopType loop) {
         super(id, name, description, x, y, width, height);
-        this.lane = lane;
+        this.loop = loop;
         if (lane == null) {
             throw new IllegalArgumentException("lane can't be null");
         } else {
-            this.loop = loop;
+            this.lane = lane;
         }
     }
 
