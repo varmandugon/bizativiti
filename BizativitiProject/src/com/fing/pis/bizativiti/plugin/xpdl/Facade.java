@@ -11,6 +11,7 @@ import javax.xml.stream.XMLStreamReader;
 
 import com.fing.pis.bizativiti.common.IPlugin;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.plugin.xpdl.events.TranslatorEvent;
 
 public class Facade implements IPlugin {
 

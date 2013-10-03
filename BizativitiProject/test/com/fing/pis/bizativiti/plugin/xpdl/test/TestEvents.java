@@ -23,7 +23,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelMessageStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTimerStartEvent;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
-import com.fing.pis.bizativiti.plugin.xpdl.TranslatorStartEvent;
+import com.fing.pis.bizativiti.plugin.xpdl.events.TranslatorStartEvent;
 
 public class TestEvents {
 

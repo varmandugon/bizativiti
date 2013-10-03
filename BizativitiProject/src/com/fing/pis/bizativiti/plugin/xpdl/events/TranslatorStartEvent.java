@@ -1,4 +1,4 @@
-package com.fing.pis.bizativiti.plugin.xpdl;
+package com.fing.pis.bizativiti.plugin.xpdl.events;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,9 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelMessageStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTimerStartEvent;
+import com.fing.pis.bizativiti.plugin.xpdl.ATranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
+import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
 public class TranslatorStartEvent extends ATranslator {
 
@@ -30,17 +32,17 @@ public class TranslatorStartEvent extends ATranslator {
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
         // vemos que tipo de evento inicio estamos tratando
         String sTrigger = event.getTrigger();
-        if (sTrigger == "None") {
+        if (sTrigger.equals("None")) {
             MetamodelStartEvent itemStartEvent = new MetamodelStartEvent(id, name, description, x, y, width, height,
                     lane, sTrigger);
             result.add(itemStartEvent);
-        } else if (sTrigger == "Timer") {
+        } else if (sTrigger.equals("Timer")) {
             String triggerType = Util.getTriggerType(event);
             String sTriggerAttr = Util.getTriggerAttrTimer(event);
             MetamodelTimerStartEvent itemTimerStart = new MetamodelTimerStartEvent(id, name, description, x, y, width,
                     height, lane, sTrigger, triggerType, sTriggerAttr);
             result.add(itemTimerStart);
-        } else if (sTrigger == "Message") {
+        } else if (sTrigger.equals("Message")) {
             String sMessageId = Util.getMessageId(event);
             MetamodelMessageStartEvent itemMessageStart = new MetamodelMessageStartEvent(id, name, description, x, y,
                     width, height, lane, sTrigger, sMessageId);

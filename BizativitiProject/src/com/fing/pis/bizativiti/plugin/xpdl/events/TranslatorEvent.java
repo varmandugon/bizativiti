@@ -1,9 +1,11 @@
-package com.fing.pis.bizativiti.plugin.xpdl;
+package com.fing.pis.bizativiti.plugin.xpdl.events;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.plugin.xpdl.ATranslator;
+import com.fing.pis.bizativiti.plugin.xpdl.Converter;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 
 public class TranslatorEvent extends ATranslator {
