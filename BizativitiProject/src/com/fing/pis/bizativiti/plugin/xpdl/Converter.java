@@ -52,9 +52,12 @@ public class Converter {
                     Collections.unmodifiableList(pathFromRoot));
             for (MetamodelElement element : translatedElements) {
                 if (convertedElements.get(element.getId()) != null) {
-                    throw new RuntimeException("Already translated element with id " + element.getId());
+                    //FIXME: No se porque estaba esto...
+                    //throw new RuntimeException("Already translated element with id " + element.getId());
+                    System.out.println("elementoRepetido");
+                } else {
+                    convertedElements.put(element.getId(), element);
                 }
-                convertedElements.put(element.getId(), element);
             }
             return translatedElements;
         }
