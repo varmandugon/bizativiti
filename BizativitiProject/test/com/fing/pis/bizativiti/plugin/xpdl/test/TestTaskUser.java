@@ -25,7 +25,7 @@ import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaUsuario;
 public class TestTaskUser {
 
     @Test
-    public void testTaskEvent1() {
+    public void testTaskUsr() {
 
         Activity act = new Activity();
         act.setId("11111111-1111-1111-1111-111111111111");

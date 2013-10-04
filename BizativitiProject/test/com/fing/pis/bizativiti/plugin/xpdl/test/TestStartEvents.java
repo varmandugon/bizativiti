@@ -25,7 +25,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelTimerStartEvent;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 import com.fing.pis.bizativiti.plugin.xpdl.events.TranslatorStartEvent;
 
-public class TestEvents {
+public class TestStartEvents {
 
     @Test
     public void testStartEvent() throws Exception {
