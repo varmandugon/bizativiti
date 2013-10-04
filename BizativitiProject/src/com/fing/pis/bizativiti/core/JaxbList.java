@@ -3,23 +3,27 @@ package com.fing.pis.bizativiti.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
 @XmlRootElement(name = "Records")
 @XmlSeeAlso({ PluginRecord.class })
-public class JaxbList<T> {
-    protected List<T> records = new ArrayList<T>();
+public class JaxbList {
+
+    protected List<PluginRecord> records = new ArrayList<PluginRecord>();
 
     public JaxbList() {}
 
-    public JaxbList(List<T> list) {
+    public JaxbList(List<PluginRecord> list) {
         this.records = list;
     }
 
-    @XmlMixed
-    public List<T> getRecords() {
+    public List<PluginRecord> getRecords() {
         return records;
     }
+
+    public void setRecords(List<PluginRecord> records) {
+        this.records = records;
+    }
+
 }

@@ -10,20 +10,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PluginRecord {
 
     @XmlElement
-    private String Name;
-
-    @XmlElement
     private String Jar;
 
     @XmlElement
     private String ClassName;
 
-    public String getName() {
-        return Name;
+    @XmlElement
+    private String Caption;
+
+    public String getCaption() {
+        return Caption;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setCaption(String caption) {
+        Caption = caption;
     }
 
     public String getJar() {
