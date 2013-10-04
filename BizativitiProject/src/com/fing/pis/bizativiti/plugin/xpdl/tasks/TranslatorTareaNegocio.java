@@ -22,7 +22,7 @@ public class TranslatorTareaNegocio extends ATranslator {
     public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
 
         TaskBusinessRule tareaNegocio = (TaskBusinessRule) node;
-        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 3);
+        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 4);
 
         // TODO: Procesar estos atributos si es necesario.
         String bussinesRule = tareaNegocio.getBusinessRuleTaskImplementation();
