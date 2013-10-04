@@ -2,6 +2,8 @@ package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 
+import org.omg.spec.bpmn._20100524.model.TDocumentation;
+import org.omg.spec.bpmn._20100524.model.TExpression;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.bpmn._20100524.model.TSequenceFlow;
 import org.omg.spec.dd._20100524.di.DiagramElement;
@@ -13,6 +15,7 @@ public class SequenceTranslator extends ATranslator {
 
     @Override
     public JAXBElement<? extends TFlowElement> getFlowElement(Object o, TranslatorState e) {
+
         MetamodelSequenceFlow sequence = (MetamodelSequenceFlow) o;
         TSequenceFlow sequenceFlow = e.getModelFactory().createTSequenceFlow();
         sequenceFlow.setId(sequence.getId());
@@ -25,6 +28,20 @@ public class SequenceTranslator extends ATranslator {
         if (referenced == null)
             throw new IllegalArgumentException("To Element of bpmn connector " + sequence.getId() + " is null");
         sequenceFlow.setTargetRef(referenced);    // Aca no va el id, sino que va el objeto referenciado! :)
+
+        if (sequence.getConditionType().equals("CONDITION")) {
+            TExpression exp = new TExpression();
+
+            exp.setId(sequence.getCondition());
+            sequenceFlow.setConditionExpression(exp);
+        }
+
+        if (sequence.getDescription() != null) {
+            TDocumentation documentation = new TDocumentation();
+            documentation.getContent().add(sequence.getDescription());
+            sequenceFlow.getDocumentation().add(documentation);
+        }
+
         return e.getModelFactory().createSequenceFlow(sequenceFlow);
     }
 
