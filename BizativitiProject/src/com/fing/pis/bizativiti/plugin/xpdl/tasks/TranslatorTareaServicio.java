@@ -25,7 +25,7 @@ public class TranslatorTareaServicio extends ATranslator {
     public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
 
         TaskService tareaServicio = (TaskService) node;
-        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 3);
+        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 4);
 
         // TODO: Procesar estos atributos si es necesario.
         String implementacion = tareaServicio.getImplementation();

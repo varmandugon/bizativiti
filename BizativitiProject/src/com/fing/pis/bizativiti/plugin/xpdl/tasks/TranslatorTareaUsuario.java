@@ -25,7 +25,7 @@ public class TranslatorTareaUsuario extends ATranslator {
     public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
 
         TaskUser tareaUsuario = (TaskUser) node;
-        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 3);
+        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 4);
 
         // TODO: Procesar estos atributos si es necesario.
 

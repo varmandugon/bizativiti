@@ -26,7 +26,9 @@ public class Util {
                 return ((Description) child).getValue();
             }
         }
-        throw new RuntimeException("Description not found in activity");
+        //No importa si no hay descripcion!!! creooo        
+        //throw new RuntimeException("Description not found in activity");
+        return "";
     }
 
     public static String getId(Activity activity) {
@@ -80,72 +82,72 @@ public class Util {
 
     public static double getX(Activity activity) {
         if (activity.getContent() != null) {
-            if (activity.getContent().get(3) != null) {
-                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
-                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
-                return node.get(0).getCoordinates().getXCoordinate();
-            } else {
-                throw new RuntimeException("No content inside activity tag");
+            for (Object o : activity.getContent()) {
+                if (o instanceof NodeGraphicsInfos) {
+                    NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) o;
+                    ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                    return node.get(0).getCoordinates().getXCoordinate();
+                }
             }
-        } else {
-            throw new RuntimeException("No NodeGraphics inside activity tag");
+            throw new RuntimeException("No content inside activity tag");
         }
+        throw new RuntimeException("No NodeGraphics inside activity tag");
     }
 
     public static double getY(Activity activity) {
         if (activity.getContent() != null) {
-            if (activity.getContent().get(3) != null) {
-                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
-                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
-                return node.get(0).getCoordinates().getYCoordinate();
-            } else {
-                throw new RuntimeException("No content inside activity tag");
+            for (Object o : activity.getContent()) {
+                if (o instanceof NodeGraphicsInfos) {
+                    NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) o;
+                    ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                    return node.get(0).getCoordinates().getYCoordinate();
+                }
             }
-        } else {
-            throw new RuntimeException("No NodeGraphics inside activity tag");
+            throw new RuntimeException("No content inside activity tag");
         }
+        throw new RuntimeException("No NodeGraphics inside activity tag");
     }
 
     public static String getLaneId(Activity activity) {
         if (activity.getContent() != null) {
-            if (activity.getContent().get(3) != null) {
-                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
-                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
-                return node.get(0).getLaneId();
-            } else {
-                throw new RuntimeException("No content inside activity tag");
+            for (Object o : activity.getContent()) {
+                if (o instanceof NodeGraphicsInfos) {
+                    NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) o;
+                    ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                    return node.get(0).getLaneId();
+                }
             }
-        } else {
-            throw new RuntimeException("No NodeGraphics inside activity tag");
+            throw new RuntimeException("No content inside activity tag");
         }
+        throw new RuntimeException("No NodeGraphics inside activity tag");
     }
 
     public static double getHeight(Activity activity) {
         if (activity.getContent() != null) {
-            if (activity.getContent().get(3) != null) {
-                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
-                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
-                return node.get(0).getHeight();
-            } else {
-                throw new RuntimeException("No content inside activity tag");
+            for (Object o : activity.getContent()) {
+                if (o instanceof NodeGraphicsInfos) {
+                    NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) o;
+                    ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                    return node.get(0).getHeight();
+                }
             }
-        } else {
-            throw new RuntimeException("No NodeGraphics inside activity tag");
+            throw new RuntimeException("No content inside activity tag");
         }
+        throw new RuntimeException("No NodeGraphics inside activity tag");
     }
 
     public static double getWidth(Activity activity) {
         if (activity.getContent() != null) {
-            if (activity.getContent().get(3) != null) {
-                NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) activity.getContent().get(3);
-                ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
-                return node.get(0).getWidth();
-            } else {
-                throw new RuntimeException("No content inside activity tag");
+            for (Object o : activity.getContent()) {
+                if (o instanceof NodeGraphicsInfos) {
+                    NodeGraphicsInfos nodeGraph = (NodeGraphicsInfos) o;
+                    ArrayList<NodeGraphicsInfo> node = (ArrayList<NodeGraphicsInfo>) nodeGraph.getNodeGraphicsInfo();
+                    return node.get(0).getWidth();
+                }
             }
-        } else {
-            throw new RuntimeException("No NodeGraphics inside activity tag");
+            throw new RuntimeException("No content inside activity tag");
         }
+        throw new RuntimeException("No NodeGraphics inside activity tag");
     }
 
     public static LoopType getLoopTipe(Activity activity) {

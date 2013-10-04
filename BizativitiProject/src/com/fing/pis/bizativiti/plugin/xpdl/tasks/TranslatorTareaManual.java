@@ -23,7 +23,7 @@ public class TranslatorTareaManual extends ATranslator {
     public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
 
         TaskManual tareaManual = (TaskManual) node;
-        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 3);
+        Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 4);
 
         // TODO: Procesar estos atributos si es necesario.
         Map<QName, String> elementos = tareaManual.getOtherAttributes();

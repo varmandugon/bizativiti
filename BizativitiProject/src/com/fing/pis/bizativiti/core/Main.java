@@ -17,8 +17,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 public class Main {
 
     /**
-     * Método principal que se encarga de convertir el flujo de entrada en
-     * BPMN.
+     * Método principal que se encarga de convertir el flujo de entrada en BPMN.
      * 
      * @param plugins
      *            flujo que contiene las indicaciones de los plugins a cargar.
@@ -68,8 +67,7 @@ public class Main {
         Main main = new Main();
         try {
             main.convert(pluginsStream, inStream, type, outStream);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | JAXBException
-                | XMLStreamException | IOException e1) {
+        } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
@@ -92,5 +90,4 @@ public class Main {
             e.printStackTrace();
         }
     }
-
 }
