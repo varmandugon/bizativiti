@@ -150,7 +150,7 @@ public class Util {
         throw new RuntimeException("No NodeGraphics inside activity tag");
     }
 
-    public static LoopType getLoopTipe(Activity activity) {
+    public static LoopType getLoopType(Activity activity) {
         LoopType result = LoopType.None;
         for (Object child : activity.getContent()) {
             if (child instanceof Loop) {

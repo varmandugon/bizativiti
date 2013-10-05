@@ -39,7 +39,7 @@ public class TranslatorTaskScript extends ATranslator {
         double width = Util.getWidth(actividad);
         double height = Util.getHeight(actividad);
         String lane = Util.getLaneId(actividad);
-        LoopType loopType = Util.getLoopTipe(actividad);
+        LoopType loopType = Util.getLoopType(actividad);
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
