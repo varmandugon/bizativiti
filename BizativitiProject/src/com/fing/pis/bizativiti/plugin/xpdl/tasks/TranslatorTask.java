@@ -9,7 +9,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.plugin.xpdl.ATranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 
-public class TranslatorTarea extends ATranslator {
+public class TranslatorTask extends ATranslator {
 
     @Override
     public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {

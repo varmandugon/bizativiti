@@ -21,7 +21,7 @@ import com.fing.pis.bizativiti.plugin.xpdl.Converter;
 import com.fing.pis.bizativiti.plugin.xpdl.DummyTranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.TranslatorActivity;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorImplementation;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTarea;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTask;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaServicio;
 
 public class TestTaskService {
@@ -74,7 +74,7 @@ public class TestTaskService {
         content.add(nodeGraph);
 
         Converter converter = new Converter.Builder().add(Activity.class, new TranslatorActivity())
-                .add(Implementation.class, new TranslatorImplementation()).add(Task.class, new TranslatorTarea())
+                .add(Implementation.class, new TranslatorImplementation()).add(Task.class, new TranslatorTask())
                 .add(TaskService.class, new TranslatorTareaServicio())
                 .add(NodeGraphicsInfos.class, DummyTranslator.getInstance()).create();
 
