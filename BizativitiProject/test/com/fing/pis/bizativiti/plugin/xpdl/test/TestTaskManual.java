@@ -7,7 +7,6 @@ import java.util.List;
 import org.junit.Test;
 import org.wfmc._2009.xpdl2.Activity;
 import org.wfmc._2009.xpdl2.Coordinates;
-import org.wfmc._2009.xpdl2.ExpressionType;
 import org.wfmc._2009.xpdl2.Implementation;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfo;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfos;
@@ -42,11 +41,6 @@ public class TestTaskManual {
         Coordinates coord = new Coordinates();
         NodeGraphicsInfo node = new NodeGraphicsInfo();
         NodeGraphicsInfos nodeGraph = new NodeGraphicsInfos();
-
-        ExpressionType expr = new ExpressionType();
-        expr.setScriptGrammar("Javascript");
-        expr.setScriptType("Bash");
-        expr.setScriptVersion("1.0");
 
         Performers performers = new Performers();
         Performer p = new Performer();
