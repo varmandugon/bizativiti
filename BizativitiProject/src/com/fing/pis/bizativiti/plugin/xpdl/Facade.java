@@ -11,15 +11,17 @@ import javax.xml.stream.XMLStreamReader;
 
 import com.fing.pis.bizativiti.common.IPlugin;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.plugin.xpdl.events.TranslatorEndEvent;
 import com.fing.pis.bizativiti.plugin.xpdl.events.TranslatorEvent;
+import com.fing.pis.bizativiti.plugin.xpdl.events.TranslatorStartEvent;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorImplementation;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskSend;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskManual;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTask;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskBusinessRule;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskManual;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskScript;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskSend;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskService;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskUser;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTask;
 
 public class Facade implements IPlugin {
 
@@ -39,6 +41,9 @@ public class Facade implements IPlugin {
         .add(org.wfmc._2009.xpdl2.Activity.class, new TranslatorActivity())
         .add(org.wfmc._2009.xpdl2.Description.class, DummyTranslator.getInstance())
         .add(org.wfmc._2009.xpdl2.Event.class, new TranslatorEvent())
+        .add(org.wfmc._2009.xpdl2.StartEvent.class, new TranslatorStartEvent())
+        .add(org.wfmc._2009.xpdl2.EndEvent.class, new TranslatorEndEvent())
+        .add(org.wfmc._2009.xpdl2.IntermediateEvent.class, new ErrorTranslator("IntermediateEvent not implemented"))
         .add(org.wfmc._2009.xpdl2.Implementation.class, new TranslatorImplementation())
         .add(org.wfmc._2009.xpdl2.Task.class, new TranslatorTask())
         .add(org.wfmc._2009.xpdl2.TaskUser.class, new TranslatorTaskUser())
