@@ -13,12 +13,12 @@ import com.fing.pis.bizativiti.common.IPlugin;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.plugin.xpdl.events.TranslatorEvent;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorImplementation;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaEnvio;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaManual;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaNegocio;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaScript;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaServicio;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaUsuario;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskSend;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskManual;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskBusinessRule;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskScript;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskService;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskUser;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTask;
 
 public class Facade implements IPlugin {
@@ -41,14 +41,14 @@ public class Facade implements IPlugin {
         .add(org.wfmc._2009.xpdl2.Event.class, new TranslatorEvent())
         .add(org.wfmc._2009.xpdl2.Implementation.class, new TranslatorImplementation())
         .add(org.wfmc._2009.xpdl2.Task.class, new TranslatorTask())
-        .add(org.wfmc._2009.xpdl2.TaskUser.class, new TranslatorTareaUsuario())
-        .add(org.wfmc._2009.xpdl2.TaskBusinessRule.class, new TranslatorTareaNegocio())
-        .add(org.wfmc._2009.xpdl2.TaskManual.class, new TranslatorTareaManual())
+        .add(org.wfmc._2009.xpdl2.TaskUser.class, new TranslatorTaskUser())
+        .add(org.wfmc._2009.xpdl2.TaskBusinessRule.class, new TranslatorTaskBusinessRule())
+        .add(org.wfmc._2009.xpdl2.TaskManual.class, new TranslatorTaskManual())
         // .add(org.wfmc._2009.xpdl2.TaskReceive.class, )
         // .add(org.wfmc._2009.xpdl2.TaskReference.class,)
-        .add(org.wfmc._2009.xpdl2.TaskScript.class, new TranslatorTareaScript())
-        .add(org.wfmc._2009.xpdl2.TaskSend.class, new TranslatorTareaEnvio())
-        .add(org.wfmc._2009.xpdl2.TaskService.class, new TranslatorTareaServicio())
+        .add(org.wfmc._2009.xpdl2.TaskScript.class, new TranslatorTaskScript())
+        .add(org.wfmc._2009.xpdl2.TaskSend.class, new TranslatorTaskSend())
+        .add(org.wfmc._2009.xpdl2.TaskService.class, new TranslatorTaskService())
         .add(org.wfmc._2009.xpdl2.Performers.class, DummyTranslator.getInstance())
         .add(org.wfmc._2009.xpdl2.Loop.class, DummyTranslator.getInstance())
         .add(org.wfmc._2009.xpdl2.Documentation.class, DummyTranslator.getInstance())

@@ -7,28 +7,26 @@ import java.util.Map;
 import javax.xml.namespace.QName;
 
 import org.wfmc._2009.xpdl2.Activity;
-import org.wfmc._2009.xpdl2.Performers;
-import org.wfmc._2009.xpdl2.TaskManual;
+import org.wfmc._2009.xpdl2.TaskBusinessRule;
 
+import com.fing.pis.bizativiti.common.metamodel.MetamodelBusinessTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
-import com.fing.pis.bizativiti.common.metamodel.MetamodelManualTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTask.LoopType;
 import com.fing.pis.bizativiti.plugin.xpdl.ATranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
-public class TranslatorTareaManual extends ATranslator {
+public class TranslatorTaskBusinessRule extends ATranslator {
 
     @Override
     public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
 
-        TaskManual tareaManual = (TaskManual) node;
+        TaskBusinessRule tareaNegocio = (TaskBusinessRule) node;
         Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 4);
 
         // TODO: Procesar estos atributos si es necesario.
-        Map<QName, String> elementos = tareaManual.getOtherAttributes();
-        List<Object> atributosAdicionales = tareaManual.getAny();
-        Performers actionPerformer = tareaManual.getPerformers();
+        String bussinesRule = tareaNegocio.getBusinessRuleTaskImplementation();
+        Map<QName, String> elementos = tareaNegocio.getOtherAttributes();
         //---
         String id = Util.getId(actividad);
         String name = Util.getName(actividad);
@@ -43,10 +41,11 @@ public class TranslatorTareaManual extends ATranslator {
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
-        MetamodelElement task = new MetamodelManualTask(id, name, description, x, y, width, height, lane, loopType);
+        MetamodelElement task = new MetamodelBusinessTask(id, name, description, x, y, width, height, lane, loopType);
 
         result.add(task);
 
         return result;
     }
+
 }

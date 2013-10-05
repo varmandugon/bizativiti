@@ -20,7 +20,7 @@ import com.fing.pis.bizativiti.plugin.xpdl.DummyTranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.TranslatorActivity;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorImplementation;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTask;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaUsuario;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskUser;
 
 public class TestTaskUser {
 
@@ -56,7 +56,7 @@ public class TestTaskUser {
 
         Converter converter = new Converter.Builder().add(Activity.class, new TranslatorActivity())
                 .add(Implementation.class, new TranslatorImplementation()).add(Task.class, new TranslatorTask())
-                .add(TaskUser.class, new TranslatorTareaUsuario())
+                .add(TaskUser.class, new TranslatorTaskUser())
                 .add(NodeGraphicsInfos.class, DummyTranslator.getInstance()).create();
 
         List<MetamodelElement> items = converter.start(act);

@@ -21,7 +21,7 @@ import com.fing.pis.bizativiti.plugin.xpdl.DummyTranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.TranslatorActivity;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorImplementation;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTask;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaScript;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskScript;
 
 public class TestTaskScript {
 
@@ -65,7 +65,7 @@ public class TestTaskScript {
 
         Converter converter = new Converter.Builder().add(Activity.class, new TranslatorActivity())
                 .add(Implementation.class, new TranslatorImplementation()).add(Task.class, new TranslatorTask())
-                .add(TaskScript.class, new TranslatorTareaScript())
+                .add(TaskScript.class, new TranslatorTaskScript())
                 .add(NodeGraphicsInfos.class, DummyTranslator.getInstance()).create();
 
         List<MetamodelElement> items = converter.start(act);

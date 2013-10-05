@@ -7,27 +7,37 @@ import java.util.Map;
 import javax.xml.namespace.QName;
 
 import org.wfmc._2009.xpdl2.Activity;
-import org.wfmc._2009.xpdl2.TaskBusinessRule;
+import org.wfmc._2009.xpdl2.MessageType;
+import org.wfmc._2009.xpdl2.Performers;
+import org.wfmc._2009.xpdl2.TaskUser;
+import org.wfmc._2009.xpdl2.WebServiceOperation;
 
-import com.fing.pis.bizativiti.common.metamodel.MetamodelBusinessTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTask.LoopType;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelUserTask;
 import com.fing.pis.bizativiti.plugin.xpdl.ATranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.Converter.ParserConverter;
 import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
-public class TranslatorTareaNegocio extends ATranslator {
+public class TranslatorTaskUser extends ATranslator {
 
     @Override
     public List<MetamodelElement> translate(ParserConverter f, Object node, List<Object> pathFromRoot) {
 
-        TaskBusinessRule tareaNegocio = (TaskBusinessRule) node;
+        TaskUser tareaUsuario = (TaskUser) node;
         Activity actividad = (Activity) pathFromRoot.get(pathFromRoot.size() - 4);
 
         // TODO: Procesar estos atributos si es necesario.
-        String bussinesRule = tareaNegocio.getBusinessRuleTaskImplementation();
-        Map<QName, String> elementos = tareaNegocio.getOtherAttributes();
+
+        String implementacion = tareaUsuario.getImplementation();
+        Map<QName, String> atributosAdicionales = tareaUsuario.getOtherAttributes();
+        List<Object> any = tareaUsuario.getAny();
+        MessageType messageIn = tareaUsuario.getMessageIn();
+        MessageType messageOut = tareaUsuario.getMessageOut();
+        Performers actionPerformer = tareaUsuario.getPerformers();
+        WebServiceOperation webServie = tareaUsuario.getWebServiceOperation();
         //---
+
         String id = Util.getId(actividad);
         String name = Util.getName(actividad);
         String description = Util.getDescription(actividad);
@@ -41,7 +51,7 @@ public class TranslatorTareaNegocio extends ATranslator {
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
 
-        MetamodelElement task = new MetamodelBusinessTask(id, name, description, x, y, width, height, lane, loopType);
+        MetamodelElement task = new MetamodelUserTask(id, name, description, x, y, width, height, lane, loopType);
 
         result.add(task);
 

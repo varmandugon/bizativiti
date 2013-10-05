@@ -22,7 +22,7 @@ import com.fing.pis.bizativiti.plugin.xpdl.DummyTranslator;
 import com.fing.pis.bizativiti.plugin.xpdl.TranslatorActivity;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorImplementation;
 import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTask;
-import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTareaServicio;
+import com.fing.pis.bizativiti.plugin.xpdl.tasks.TranslatorTaskService;
 
 public class TestTaskService {
 
@@ -75,7 +75,7 @@ public class TestTaskService {
 
         Converter converter = new Converter.Builder().add(Activity.class, new TranslatorActivity())
                 .add(Implementation.class, new TranslatorImplementation()).add(Task.class, new TranslatorTask())
-                .add(TaskService.class, new TranslatorTareaServicio())
+                .add(TaskService.class, new TranslatorTaskService())
                 .add(NodeGraphicsInfos.class, DummyTranslator.getInstance()).create();
 
         List<MetamodelElement> items = converter.start(act);
