@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.wfmc._2009.xpdl2.Activity;
 import org.wfmc._2009.xpdl2.Coordinates;
 import org.wfmc._2009.xpdl2.Implementation;
+import org.wfmc._2009.xpdl2.Loop;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfo;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfos;
 import org.wfmc._2009.xpdl2.Task;
@@ -46,6 +47,10 @@ public class TestTaskBusiness {
         impl.setTask(task);
         content.add(impl);
 
+        Loop l = new Loop();
+        l.setLoopType("Standard");
+        content.add(l);
+
         coord.setXCoordinate(3.14);
         coord.setYCoordinate(2.37);
 
@@ -60,7 +65,8 @@ public class TestTaskBusiness {
         Converter converter = new Converter.Builder().add(Activity.class, new TranslatorActivity())
                 .add(Implementation.class, new TranslatorImplementation()).add(Task.class, new TranslatorTask())
                 .add(TaskBusinessRule.class, new TranslatorTaskBusinessRule())
-                .add(NodeGraphicsInfos.class, DummyTranslator.getInstance()).create();
+                .add(NodeGraphicsInfos.class, DummyTranslator.getInstance())
+                .add(Loop.class, DummyTranslator.getInstance()).create();
 
         List<MetamodelElement> items = converter.start(act);
 
@@ -72,7 +78,7 @@ public class TestTaskBusiness {
         assertEquals("", me.getDescription());
 
         assertEquals("Lane", me.getLane());
-
+        assertEquals("Standard", me.getLoop().toString());
         assertEquals(5.0, me.getHeight(), 0);
         assertEquals(6.0, me.getWidth(), 0);
         assertEquals(3.14, me.getCoordinate().getX(), 0);
