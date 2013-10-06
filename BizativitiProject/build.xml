@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="bizativiti" basedir="." default="main">
+
+    <property name="src.dir"     value="./src"/>
+    <property name="gen.dir"     value="./gen"/>
+    <property name="build.dir"   value="./bin"/>
+    <property name="classes.dir" value="./bin"/>
+    <property name="jar.dir"     value="./bin"/>
+    <property name="libs.dir"    value="./libs"/>
+
+    <property name="main-class"  value="com.fing.pis.bizativiti.core.CLI"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${gen.dir}" destdir="${classes.dir}" includeantruntime="false"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+            <classpath>
+                <fileset dir="${libs.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+            <zipgroupfileset dir="${libs.dir}" includes="**/*.jar"/>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+    </target>
+
+    <target name="main" depends="clean,jar"/>
+
+</project>
