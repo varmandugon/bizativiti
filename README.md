@@ -31,13 +31,14 @@ Con ant
 
 Con eclipse:
 * Primero hay que generar la configuración por defecto:
-1) Click-derecho en el directorio del proyecto BizativitiProject
-2) Run As > Java Application
-3) Elegir CLI - com.fing.pis.bizativiti.core
+    1. Click-derecho en el directorio del proyecto BizativitiProject
+    2. Run As > Java Application
+    3. Elegir CLI - com.fing.pis.bizativiti.core
 * Generación del jar:
-1) Click-derecho en el directorio del proyecto BizativitiProject
-2) Export...
-3) Elgir Java > Runnable Jar file
-4) a) Launch configuration: eligen CLI - com.fing.pis.bizativiti.core
-   b) Export destination: BizativitiProject/bin/bizativiti.jar
-   c) Library handling: Package required libraries into generated JAR
+    1. Click-derecho en el directorio del proyecto BizativitiProject
+    2. Export...
+    3. Elgir Java > Runnable Jar file
+    4. Opciones
+       a. Launch configuration: eligen CLI - com.fing.pis.bizativiti.core
+       b. Export destination: BizativitiProject/bin/bizativiti.jar
+       c. Library handling: Package required libraries into generated JAR
