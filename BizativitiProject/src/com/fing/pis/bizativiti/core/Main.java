@@ -1,8 +1,5 @@
 package com.fing.pis.bizativiti.core;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -41,53 +38,10 @@ public class Main {
         pm.scan(plugins);
         IPlugin plugin = pm.getPlugin(type);
         List<MetamodelElement> elements = plugin.parse(in);
+
+        // procesar elements
+
         // TODO: convertir utilizando Factory de BPMN
     }
 
-    /**
-     * Punto de entrada para el cliente de linea de comandos. Ejemplo:
-     * archivo_plugins tipo_plugin archivo_entrada archivo_salida
-     * 
-     * @param args
-     */
-    // FIXME: mejorar manejo de errores y parametros a usar
-    public static void main(String[] args) {
-        InputStream pluginsStream;
-        String type;
-        InputStream inStream;
-        OutputStream outStream;
-        try {
-            pluginsStream = new FileInputStream(args[0]);
-            type = args[1];
-            inStream = new FileInputStream(args[2]);
-            outStream = new FileOutputStream(args[3]);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        Main main = new Main();
-        try {
-            main.convert(pluginsStream, inStream, type, outStream);
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        try {
-            pluginsStream.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            inStream.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            outStream.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 }

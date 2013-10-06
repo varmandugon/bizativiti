@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Records><records><Jar></Jar><ClassName>com.fing.pis.bizativiti.plugin.xpdl.Facade</ClassName><Caption>XPDL</Caption></records></Records>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Records>
+  <records>
+    <Jar/>
+    <ClassName>com.fing.pis.bizativiti.plugin.xpdl.Facade</ClassName>
+    <Caption>XPDL</Caption>
+  </records>
+</Records>
