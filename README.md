@@ -39,6 +39,6 @@ Con eclipse:
     2. Export...
     3. Elgir Java > Runnable Jar file
     4. Opciones
-       a. Launch configuration: eligen CLI - com.fing.pis.bizativiti.core
-       b. Export destination: BizativitiProject/bin/bizativiti.jar
-       c. Library handling: Package required libraries into generated JAR
+       * Launch configuration: eligen CLI - com.fing.pis.bizativiti.core
+       * Export destination: BizativitiProject/bin/bizativiti.jar
+       * Library handling: Package required libraries into generated JAR
