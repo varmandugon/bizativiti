@@ -13,7 +13,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTimerStartEvent;
 
-public class TimerStartEventTranslator {
+public class TimerStartEventTranslator extends ATranslator {
 
     // @Override
     public JAXBElement<? extends TFlowElement> getFlowElement(Object o, TranslatorState e) {
