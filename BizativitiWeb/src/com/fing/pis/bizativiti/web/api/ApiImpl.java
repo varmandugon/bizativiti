@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,8 +21,8 @@ class ApiImpl implements Api {
 
     public ApiImpl() {
         // nos aseguramos de que existan los directorios
-        uploadDir.mkdir();
-        processedDir.mkdir();
+        uploadDir.getAbsoluteFile().mkdir();
+        processedDir.getAbsoluteFile().mkdir();
     }
 
     private File getUploadFileForTicket(String ticketId) {
@@ -35,8 +37,29 @@ class ApiImpl implements Api {
         return new File(processedDir, ticketId + LOG_SUFFIX);
     }
 
+    /**
+     * Calculate SHA1 of name
+     * 
+     * @param name
+     * @return
+     */
     private String generateTicketId(String name) {
-        return null;
+        // calculate SHA1 for name
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return byteArrayToHexString(md.digest(name.getBytes()));
+    }
+
+    private static String byteArrayToHexString(byte[] b) {
+        String result = "";
+        for (int i = 0; i < b.length; i++) {
+            result += Integer.toString((b[i] & 0xff) + 0x100, 16).substring(1);
+        }
+        return result;
     }
 
     @Override
