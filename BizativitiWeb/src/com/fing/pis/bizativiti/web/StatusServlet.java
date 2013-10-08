@@ -1,6 +1,7 @@
 package com.fing.pis.bizativiti.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fing.pis.bizativiti.web.Util.Extension;
 import com.fing.pis.bizativiti.web.Util.ParsedUrl;
+import com.fing.pis.bizativiti.web.api.Api;
+import com.fing.pis.bizativiti.web.api.FactoryApi;
 
 /**
  * Servlet implementation class StatusServlet
@@ -34,11 +37,13 @@ public class StatusServlet extends HttpServlet {
         ParsedUrl parsedUrl = Util.parseUrl(request.getPathInfo());
         if (parsedUrl.isValid()) {
             if (parsedUrl.getExtension() == Extension.HTML) {
-                response.getOutputStream().print(
-                        String.format("<html><body>Ticket <strong>%s</strong></body></html>", parsedUrl.getTicketId()));
+                response.getOutputStream().print("TODO");
             } else if (parsedUrl.getExtension() == Extension.JSON) {
                 response.setContentType("application/json");
-                response.getOutputStream().print("{\"ticketId\":\"" + parsedUrl.getTicketId() + "\"}");
+                Api.Status status = FactoryApi.getApi().getStatus(parsedUrl.getTicketId());
+                PrintWriter writer = response.getWriter();
+                writer.append("{\"ticketId\":\"").append(parsedUrl.getTicketId()).append("\", \"status\":\"")
+                        .append(status.toString()).append("\"}");
             } else {
                 // no sabemos manejar la extensión
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
