@@ -75,7 +75,7 @@ public class CLI {
 
         Main main = new Main();
         try {
-            // main.convert(pluginsStream, inStream, type, outStream);
+            main.convert(pluginsStream, inStream, type, outStream);
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {

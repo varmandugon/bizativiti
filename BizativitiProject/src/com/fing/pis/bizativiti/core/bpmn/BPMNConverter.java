@@ -1,7 +1,24 @@
 package com.fing.pis.bizativiti.core.bpmn;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.omg.spec.bpmn._20100524.di.BPMNDiagram;
 import org.omg.spec.bpmn._20100524.di.BPMNPlane;
@@ -9,13 +26,14 @@ import org.omg.spec.bpmn._20100524.model.TDefinitions;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.bpmn._20100524.model.TProcess;
 import org.omg.spec.dd._20100524.di.DiagramElement;
+import org.w3c.dom.Document;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelPackage;
 
 public class BPMNConverter {
 
-    public JAXBElement<TDefinitions> convert(MetamodelPackage metamodel) {
+    public static JAXBElement<TDefinitions> convert(MetamodelPackage metamodel) {
         Converter converter = FactoryConverter.getInstance();
         TranslatorState state = new TranslatorState();
 
@@ -54,6 +72,33 @@ public class BPMNConverter {
         bpmnDefinitions.getRootElement().add(JAXBProcess);
         JAXBElement<TDefinitions> jaxbBpmnDefinitions = state.getModelFactory().createDefinitions(bpmnDefinitions);
         return jaxbBpmnDefinitions;
+    }
+
+    public static void writeBPMN(JAXBElement<TDefinitions> bpmn, OutputStream out) {
+        Writer stream = new OutputStreamWriter(out);
+        try {
+            JAXBContext jc = JAXBContext.newInstance(org.omg.spec.bpmn._20100524.model.TDefinitions.class);
+            Marshaller marshaller = jc.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+
+            final Transformer serializer = TransformerFactory.newInstance().newTransformer();
+            serializer.setOutputProperty(OutputKeys.INDENT, "yes");
+            serializer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
+            marshaller.marshal(bpmn, doc);
+            serializer.transform(new DOMSource(doc), new StreamResult(stream));
+
+        } catch (JAXBException | TransformerFactoryConfigurationError | ParserConfigurationException
+                | TransformerException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            stream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -5,11 +5,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
 import com.fing.pis.bizativiti.common.IPlugin;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelPackage;
+import com.fing.pis.bizativiti.core.bpmn.BPMNConverter;
 
 public class Main {
 
@@ -38,10 +41,10 @@ public class Main {
         pm.scan(plugins);
         IPlugin plugin = pm.getPlugin(type);
         List<MetamodelElement> elements = plugin.parse(in);
-
-        // procesar elements
-
-        // TODO: convertir utilizando Factory de BPMN
+        MetamodelPackage xpdlPackage = (MetamodelPackage) elements.get(0);
+        JAXBElement<org.omg.spec.bpmn._20100524.model.TDefinitions> bpmnDefinitions = BPMNConverter
+                .convert(xpdlPackage);
+        BPMNConverter.writeBPMN(bpmnDefinitions, out);
     }
 
 }
