@@ -11,18 +11,26 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
 class ApiImpl implements Api {
 
     private static final String LOG_SUFFIX = "_log";
     private static final String PROCESSED_SUFFIX = "_processed";
-    private static final File uploadDir = new File("./upload");
-    private static final File processedDir = new File("./processed");
+    private static final String UPLOAD_DIRECTORY = "upload";
+    private static final String PROCESSED_DIRECTORY = "upload";
+    private final File uploadDir;
+    private final File processedDir;
     private Map<String, Status> tasks = new HashMap<String, Status>();
 
-    public ApiImpl() {
-        // nos aseguramos de que existan los directorios
-        uploadDir.getAbsoluteFile().mkdir();
-        processedDir.getAbsoluteFile().mkdir();
+    public ApiImpl(ServletContext servletContext) {
+        File baseFile = new File(servletContext.getInitParameter("server_files_dir"));
+        // nos aseguramos que existe el directorio
+        baseFile.mkdir();
+        uploadDir = new File(baseFile, UPLOAD_DIRECTORY).getAbsoluteFile();
+        uploadDir.mkdir();
+        processedDir = new File(baseFile, PROCESSED_DIRECTORY).getAbsoluteFile();
+        processedDir.mkdir();
     }
 
     private File getUploadFileForTicket(String ticketId) {

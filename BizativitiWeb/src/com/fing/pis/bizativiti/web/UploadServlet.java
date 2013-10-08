@@ -40,7 +40,7 @@ public class UploadServlet extends HttpServlet {
         Part filePart = request.getPart("file"); // obtenemos <input type="file" name="file">
         String filename = getFilename(filePart);
         InputStream filecontent = filePart.getInputStream();
-        String ticketId = FactoryApi.getApi().upload(filename, filecontent);
+        String ticketId = FactoryApi.getApi(getServletContext()).upload(filename, filecontent);
         // TODO: capturar errores
         // devolvemos json: {"status": "ok"/"failed", "ticket_id": xxx}
         response.setContentType("application/json");

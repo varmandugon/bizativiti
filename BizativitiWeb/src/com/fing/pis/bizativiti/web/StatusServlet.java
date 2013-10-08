@@ -40,7 +40,7 @@ public class StatusServlet extends HttpServlet {
                 response.getOutputStream().print("TODO");
             } else if (parsedUrl.getExtension() == Extension.JSON) {
                 response.setContentType("application/json");
-                Api.Status status = FactoryApi.getApi().getStatus(parsedUrl.getTicketId());
+                Api.Status status = FactoryApi.getApi(getServletContext()).getStatus(parsedUrl.getTicketId());
                 PrintWriter writer = response.getWriter();
                 writer.append("{\"ticketId\":\"").append(parsedUrl.getTicketId()).append("\", \"status\":\"")
                         .append(status.toString()).append("\"}");
