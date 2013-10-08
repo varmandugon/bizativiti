@@ -18,7 +18,7 @@ class ApiImpl implements Api {
     private static final String LOG_SUFFIX = "_log";
     private static final String PROCESSED_SUFFIX = "_processed";
     private static final String UPLOAD_DIRECTORY = "upload";
-    private static final String PROCESSED_DIRECTORY = "upload";
+    private static final String PROCESSED_DIRECTORY = "processed";
     private final File uploadDir;
     private final File processedDir;
     private Map<String, Status> tasks = new HashMap<String, Status>();
