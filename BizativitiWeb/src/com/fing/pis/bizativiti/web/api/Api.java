@@ -11,8 +11,10 @@ public interface Api {
     public enum Status {
         /** El ticket no existe en el sistema */
         Unknown,
-        /** El ticket está esperando a ser procesado */
+        /** El ticket está esperando a ser agregado a la cola de espera */
         Pending,
+        /** El ticket está en la cola de espera, esperando a ser procesado */
+        Starting,
         /** El ticket está siendo procesado */
         Processing,
         /** El procesamiento del ticket termino exitosamente */
