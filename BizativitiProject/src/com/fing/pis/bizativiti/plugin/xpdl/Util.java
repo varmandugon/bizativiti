@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 import org.wfmc._2009.xpdl2.Activity;
 import org.wfmc._2009.xpdl2.Description;
+import org.wfmc._2009.xpdl2.Lane;
 import org.wfmc._2009.xpdl2.Loop;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfo;
 import org.wfmc._2009.xpdl2.NodeGraphicsInfos;
+import org.wfmc._2009.xpdl2.PackageType;
+import org.wfmc._2009.xpdl2.Pool;
+import org.wfmc._2009.xpdl2.Pools;
 import org.wfmc._2009.xpdl2.StartEvent;
 import org.wfmc._2009.xpdl2.TriggerResultMessage;
 import org.wfmc._2009.xpdl2.TriggerTimer;
@@ -165,6 +169,29 @@ public class Util {
                 break;
             }
         }
+        return result;
+    }
+
+    public static String getLaneName(Activity activity, PackageType pType) {
+
+        String result = "Default_Bizativiti_Lane";
+        double y = getY(activity);
+        double position = y + getHeight(activity) / 2;
+
+        Pools pools = pType.getPools();
+        for (Pool p : pools.getPool()) {
+            for (Lane lane : p.getLanes().getLane()) {
+                for (NodeGraphicsInfo ngInfo : lane.getNodeGraphicsInfos().getNodeGraphicsInfo()) {
+                    double alto = ngInfo.getHeight();
+                    double desde = ngInfo.getCoordinates().getYCoordinate();
+                    if (position >= desde && position < (alto + desde)) {
+                        result = lane.getName();
+                        break;
+                    }
+                }
+            }
+        }
+
         return result;
     }
 }

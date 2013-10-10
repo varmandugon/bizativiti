@@ -8,6 +8,7 @@ import javax.xml.namespace.QName;
 
 import org.wfmc._2009.xpdl2.Activity;
 import org.wfmc._2009.xpdl2.ExpressionType;
+import org.wfmc._2009.xpdl2.PackageType;
 import org.wfmc._2009.xpdl2.TaskScript;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
@@ -38,7 +39,7 @@ public class TranslatorTaskScript extends ATranslator {
         double y = Util.getY(actividad);
         double width = Util.getWidth(actividad);
         double height = Util.getHeight(actividad);
-        String lane = Util.getLaneId(actividad);
+        String lane = Util.getLaneName(actividad, (PackageType) pathFromRoot.get(0));
         LoopType loopType = Util.getLoopType(actividad);
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();

@@ -7,16 +7,12 @@ import java.io.Writer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
@@ -90,8 +86,7 @@ public class BPMNConverter {
             marshaller.marshal(bpmn, doc);
             serializer.transform(new DOMSource(doc), new StreamResult(stream));
 
-        } catch (JAXBException | TransformerFactoryConfigurationError | ParserConfigurationException
-                | TransformerException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         try {

@@ -8,6 +8,7 @@ import javax.xml.namespace.QName;
 
 import org.wfmc._2009.xpdl2.Activity;
 import org.wfmc._2009.xpdl2.MessageType;
+import org.wfmc._2009.xpdl2.PackageType;
 import org.wfmc._2009.xpdl2.TaskService;
 import org.wfmc._2009.xpdl2.WebServiceFaultCatch;
 import org.wfmc._2009.xpdl2.WebServiceOperation;
@@ -45,7 +46,7 @@ public class TranslatorTaskService extends ATranslator {
         double y = Util.getY(actividad);
         double width = Util.getWidth(actividad);
         double height = Util.getHeight(actividad);
-        String lane = Util.getLaneId(actividad);
+        String lane = Util.getLaneName(actividad, (PackageType) pathFromRoot.get(0));
         LoopType loopType = Util.getLoopType(actividad);
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
