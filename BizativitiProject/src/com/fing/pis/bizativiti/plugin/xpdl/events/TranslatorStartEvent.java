@@ -3,6 +3,8 @@ package com.fing.pis.bizativiti.plugin.xpdl.events;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.wfmc._2009.xpdl2.PackageType;
+
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelMessageStartEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
@@ -27,7 +29,7 @@ public class TranslatorStartEvent extends ATranslator {
         double y = Util.getY(parent);
         double width = Util.getWidth(parent);
         double height = Util.getHeight(parent);
-        String lane = Util.getLaneId(parent);
+        String lane = Util.getLaneName(parent, (PackageType) pathFromRoot.get(0));
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
         // vemos que tipo de evento inicio estamos tratando

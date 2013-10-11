@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.wfmc._2009.xpdl2.Activity;
 import org.wfmc._2009.xpdl2.EndEvent;
+import org.wfmc._2009.xpdl2.PackageType;
 import org.wfmc._2009.xpdl2.ResultError;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
@@ -31,7 +32,7 @@ public class TranslatorEndEvent extends ATranslator {
         double y = Util.getY(parent);
         double width = Util.getWidth(parent);
         double height = Util.getHeight(parent);
-        String lane = Util.getLaneId(parent);
+        String lane = Util.getLaneName(parent, (PackageType) pathFromRoot.get(0));
 
         List<MetamodelElement> result = new ArrayList<MetamodelElement>();
         // vemos que tipo de evento end estamos tratando
