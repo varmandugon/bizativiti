@@ -2,8 +2,10 @@ package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 
+import org.omg.spec.bpmn._20100524.model.TDocumentation;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.bpmn._20100524.model.TManualTask;
+import org.omg.spec.bpmn._20100524.model.TServiceTask;
 import org.omg.spec.bpmn._20100524.model.TTask;
 import org.omg.spec.bpmn._20100524.model.TUserTask;
 import org.omg.spec.dd._20100524.di.DiagramElement;
@@ -11,6 +13,9 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelManualTask;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelScriptTask;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelSendTask;
+import com.fing.pis.bizativiti.common.metamodel.MetamodelServiceTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelUserTask;
 
@@ -33,6 +38,11 @@ public class TaskTranslator extends ATranslator {
             //TODO: Propiedades especificas de user tasks
             bpmnTask = t;
             jaxbtask = e.getModelFactory().createUserTask(t);
+        } else if (isServiceTask(task)) {
+            TServiceTask t = e.getModelFactory().createTServiceTask();
+            //TODO: Propiedades especificas de un service tasks
+            bpmnTask = t;
+            jaxbtask = e.getModelFactory().createServiceTask(t);
         } else {
             bpmnTask = e.getModelFactory().createTTask();
             jaxbtask = e.getModelFactory().createTask(bpmnTask);
@@ -49,9 +59,16 @@ public class TaskTranslator extends ATranslator {
             default:
                 // En bpmn si el loop es none parece que no lleva nada.
                 break;
+
         }
         bpmnTask.setId(task.getId());
         bpmnTask.setName(task.getName());
+        if (task.getDescription() != null) {
+            TDocumentation documentation = new TDocumentation();
+            documentation.getContent().add(task.getDescription());
+            bpmnTask.getDocumentation().add(documentation);
+        }
+
         return jaxbtask;
     }
 
@@ -61,6 +78,18 @@ public class TaskTranslator extends ATranslator {
 
     private boolean isManualTask(MetamodelElement element) {
         return element instanceof MetamodelManualTask;
+    }
+
+    private boolean isServiceTask(MetamodelElement element) {
+        return element instanceof MetamodelServiceTask;
+    }
+
+    private boolean isScriptTask(MetamodelElement element) {
+        return element instanceof MetamodelScriptTask;
+    }
+
+    private boolean isSendTask(MetamodelElement element) {
+        return element instanceof MetamodelSendTask;
     }
 
     @Override
