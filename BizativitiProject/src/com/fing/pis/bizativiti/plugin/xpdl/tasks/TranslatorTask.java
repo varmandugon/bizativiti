@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.wfmc._2009.xpdl2.Task;
-import org.wfmc._2009.xpdl2.TaskUser;
+import org.wfmc._2009.xpdl2.TaskManual;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.plugin.xpdl.ATranslator;
@@ -52,8 +52,8 @@ public class TranslatorTask extends ATranslator {
 
         } else {
             //Es tarea por defecto
-            tarea.setTaskUser(new TaskUser());
-            result.addAll(f.eval(tarea.getTaskUser(), pathFromRoot));
+            tarea.setTaskManual(new TaskManual());
+            result.addAll(f.eval(tarea.getTaskManual(), pathFromRoot));
         }
 
         return result;
