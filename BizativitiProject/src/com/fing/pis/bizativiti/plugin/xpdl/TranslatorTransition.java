@@ -24,6 +24,7 @@ public class TranslatorTransition extends ATranslator {
 
         String conditionType = transition.getCondition().getType();
         StringBuilder condition = new StringBuilder();
+
         if (transition.getCondition() != null) {
             for (Object content : transition.getCondition().getContent()) {
                 if (content instanceof String) {
