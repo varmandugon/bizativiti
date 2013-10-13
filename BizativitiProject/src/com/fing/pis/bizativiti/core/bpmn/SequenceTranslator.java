@@ -29,10 +29,6 @@ public class SequenceTranslator extends ATranslator {
             throw new IllegalArgumentException("To Element of bpmn connector " + sequence.getId() + " is null");
         sequenceFlow.setTargetRef(referenced);    // Aca no va el id, sino que va el objeto referenciado! :)
 
-        if (sequence.getName() != null) {
-            sequenceFlow.setName(sequence.getName());
-        }
-
         if ("CONDITION".equals(sequence.getConditionType())) {
             TExpression exp = new TExpression();
 

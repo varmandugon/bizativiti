@@ -2,14 +2,17 @@ package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 
+import org.omg.spec.bpmn._20100524.model.TBusinessRuleTask;
 import org.omg.spec.bpmn._20100524.model.TDocumentation;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.bpmn._20100524.model.TManualTask;
+import org.omg.spec.bpmn._20100524.model.TSendTask;
 import org.omg.spec.bpmn._20100524.model.TServiceTask;
 import org.omg.spec.bpmn._20100524.model.TTask;
 import org.omg.spec.bpmn._20100524.model.TUserTask;
 import org.omg.spec.dd._20100524.di.DiagramElement;
 
+import com.fing.pis.bizativiti.common.metamodel.MetamodelBusinessTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelManualTask;
@@ -43,6 +46,14 @@ public class TaskTranslator extends ATranslator {
             //TODO: Propiedades especificas de un service tasks
             bpmnTask = t;
             jaxbtask = e.getModelFactory().createServiceTask(t);
+        } else if (isBuissnessRuleTask(task)) {
+            TBusinessRuleTask t = e.getModelFactory().createTBusinessRuleTask();
+            bpmnTask = t;
+            jaxbtask = e.getModelFactory().createBusinessRuleTask(t);
+        } else if (isSendTask(task)) {
+            TSendTask t = e.getModelFactory().createTSendTask();
+            bpmnTask = t;
+            jaxbtask = e.getModelFactory().createSendTask(t);
         } else {
             bpmnTask = e.getModelFactory().createTTask();
             jaxbtask = e.getModelFactory().createTask(bpmnTask);
@@ -86,6 +97,10 @@ public class TaskTranslator extends ATranslator {
 
     private boolean isScriptTask(MetamodelElement element) {
         return element instanceof MetamodelScriptTask;
+    }
+
+    private boolean isBuissnessRuleTask(MetamodelElement element) {
+        return element instanceof MetamodelBusinessTask;
     }
 
     private boolean isSendTask(MetamodelElement element) {
