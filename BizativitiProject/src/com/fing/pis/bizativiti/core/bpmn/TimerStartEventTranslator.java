@@ -32,7 +32,7 @@ public class TimerStartEventTranslator extends ATranslator {
         //agrego date o cycle
         MetamodelTimerStartEvent timerevent = (MetamodelTimerStartEvent) o;
         TTimerEventDefinition timer = e.getModelFactory().createTTimerEventDefinition();
-
+        timer.setId(timerevent.getId());
         if (timerevent.getTriggeType().equals("TimeDate")) {
             TExpression exp = new TExpression();
             exp.setId(timerevent.getTriggerAttr());

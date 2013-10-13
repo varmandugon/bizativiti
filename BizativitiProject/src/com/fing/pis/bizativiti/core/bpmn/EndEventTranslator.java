@@ -2,6 +2,7 @@ package com.fing.pis.bizativiti.core.bpmn;
 
 import javax.xml.bind.JAXBElement;
 
+import org.omg.spec.bpmn._20100524.model.TDocumentation;
 import org.omg.spec.bpmn._20100524.model.TEndEvent;
 import org.omg.spec.bpmn._20100524.model.TFlowElement;
 import org.omg.spec.dd._20100524.di.DiagramElement;
@@ -17,6 +18,11 @@ public class EndEventTranslator extends ATranslator {
         TEndEvent endEvent = e.getModelFactory().createTEndEvent();
         endEvent.setId(event.getId());
         endEvent.setName(event.getName());
+        if (event.getDescription() != null) {
+            TDocumentation documentation = new TDocumentation();
+            documentation.getContent().add(event.getDescription());
+            endEvent.getDocumentation().add(documentation);
+        }
         return e.getModelFactory().createEndEvent(endEvent);
     }
 
