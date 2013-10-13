@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns3="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:ns4="http://www.omg.org/spec/DD/20100524/DC">
+  <process id="Diagram_1">
+    <startEvent id="6eeadee6-d8e2-493e-a397-a976d84e067e" name="Startttttttttttttttttt">
+      <documentation>Description Start Event</documentation>
+    </startEvent>
+  </process>
+  <ns3:BPMNDiagram id="BPMNDiagram_Diagram 1">
+    <ns3:BPMNPlane xmlns="" xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/MODEL" bpmnElement="Diagram_1" id="BPMNPlane_Diagram 1">
+      <ns3:BPMNShape bpmnElement="6eeadee6-d8e2-493e-a397-a976d84e067e" id="BPMNShape_sid-6eeadee6-d8e2-493e-a397-a976d84e067e">
+        <ns4:Bounds height="30.0" width="30.0" x="188.0" y="104.0"/>
+      </ns3:BPMNShape>
+    </ns3:BPMNPlane>
+  </ns3:BPMNDiagram>
+</definitions>
