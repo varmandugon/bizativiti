@@ -10,6 +10,7 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelConnector;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelSequenceFlow;
+import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
 public class SequenceTranslator extends ATranslator {
 
@@ -40,7 +41,7 @@ public class SequenceTranslator extends ATranslator {
         }
         if (sequence.getDescription() != null) {
             TDocumentation documentation = new TDocumentation();
-            documentation.getContent().add(sequence.getDescription());
+            documentation.getContent().add(Util.getPlainTextFromHTML(sequence.getDescription()));
             sequenceFlow.getDocumentation().add(documentation);
         }
 

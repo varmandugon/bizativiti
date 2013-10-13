@@ -198,8 +198,8 @@ public class Util {
 
     /* Parsea un String html y obtiene solo el texto, se usa para las descriptions sacarle el estilo*/
     public static String getPlainTextFromHTML(String html) {
+        html = html.replace("&amp;", "&");
         String htmlString = Jsoup.parse(html).text();
         return htmlString.replaceAll("\\<.*?>", "");
     }
-
 }
