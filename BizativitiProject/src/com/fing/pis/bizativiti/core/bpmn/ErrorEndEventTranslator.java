@@ -12,6 +12,7 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelEndEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelErrorEndEvent;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
+import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
 public class ErrorEndEventTranslator extends ATranslator {
 
@@ -23,7 +24,7 @@ public class ErrorEndEventTranslator extends ATranslator {
         endEvent.setName(event.getName());
         if (event.getDescription() != null) {
             TDocumentation documentation = new TDocumentation();
-            documentation.getContent().add(event.getDescription());
+            documentation.getContent().add(Util.getPlainTextFromHTML(event.getDescription()));
             endEvent.getDocumentation().add(documentation);
         }
 

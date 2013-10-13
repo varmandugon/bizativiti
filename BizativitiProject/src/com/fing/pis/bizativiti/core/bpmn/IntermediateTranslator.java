@@ -9,6 +9,7 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelIntermediate;
+import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
 public class IntermediateTranslator extends ATranslator {
 
@@ -21,7 +22,7 @@ public class IntermediateTranslator extends ATranslator {
         event.setName(trowevent.getName());
         if (trowevent.getDescription() != null) {
             TDocumentation documentation = new TDocumentation();
-            documentation.getContent().add(trowevent.getDescription());
+            documentation.getContent().add(Util.getPlainTextFromHTML(trowevent.getDescription()));
             event.getDocumentation().add(documentation);
         }
         return e.getModelFactory().createIntermediateThrowEvent(event);

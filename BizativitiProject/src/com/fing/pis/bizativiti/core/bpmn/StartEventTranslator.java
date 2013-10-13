@@ -9,6 +9,7 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 
 import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelStartEvent;
+import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
 public class StartEventTranslator extends ATranslator {
 
@@ -21,7 +22,7 @@ public class StartEventTranslator extends ATranslator {
         startEvent.setName(event.getName());
         if (event.getDescription() != null) {
             TDocumentation documentation = new TDocumentation();
-            documentation.getContent().add(event.getDescription());
+            documentation.getContent().add(Util.getPlainTextFromHTML(event.getDescription()));
             startEvent.getDocumentation().add(documentation);
         }
         return e.getModelFactory().createStartEvent(startEvent);

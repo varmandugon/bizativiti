@@ -12,6 +12,7 @@ import org.omg.spec.dd._20100524.di.DiagramElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelFlowElement;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelIntermediate;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelIntermediateMessageCatch;
+import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
 public class MessageCatchIntermediateTranslator extends ATranslator {
 
@@ -24,7 +25,7 @@ public class MessageCatchIntermediateTranslator extends ATranslator {
         messageevent.setName(catchevent.getName());
         if (catchevent.getDescription() != null) {
             TDocumentation documentation = new TDocumentation();
-            documentation.getContent().add(catchevent.getDescription());
+            documentation.getContent().add(Util.getPlainTextFromHTML(catchevent.getDescription()));
             messageevent.getDocumentation().add(documentation);
         }
 
