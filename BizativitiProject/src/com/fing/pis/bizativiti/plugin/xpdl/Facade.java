@@ -62,6 +62,7 @@ public class Facade implements IPlugin {
         .add(org.wfmc._2009.xpdl2.Association.class, new TranslatorAssociation())
         .add(org.wfmc._2009.xpdl2.Transitions.class, new TranslatorTransitions())
         .add(org.wfmc._2009.xpdl2.Transition.class, new TranslatorTransition())
+		.add(org.wfmc._2009.xpdl2.Route.class,new TranslatorGateWay())
         .create();
     // @formatter:on
 
