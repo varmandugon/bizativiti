@@ -2,6 +2,7 @@ package com.fing.pis.bizativiti.plugin.xpdl;
 
 import java.util.ArrayList;
 
+import org.jsoup.Jsoup;
 import org.wfmc._2009.xpdl2.Activity;
 import org.wfmc._2009.xpdl2.Description;
 import org.wfmc._2009.xpdl2.Lane;
@@ -194,4 +195,11 @@ public class Util {
 
         return result;
     }
+
+    /* Parsea un String html y obtiene solo el texto, se usa para las descriptions sacarle el estilo*/
+    public static String getPlainTextFromHTML(String html) {
+        String htmlString = Jsoup.parse(html).text();
+        return htmlString.replaceAll("\\<.*?>", "");
+    }
+
 }

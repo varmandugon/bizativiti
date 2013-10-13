@@ -21,6 +21,7 @@ import com.fing.pis.bizativiti.common.metamodel.MetamodelSendTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelServiceTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelTask;
 import com.fing.pis.bizativiti.common.metamodel.MetamodelUserTask;
+import com.fing.pis.bizativiti.plugin.xpdl.Util;
 
 public class TaskTranslator extends ATranslator {
     //////////////////////////////////////////////
@@ -76,7 +77,7 @@ public class TaskTranslator extends ATranslator {
         bpmnTask.setName(task.getName());
         if (task.getDescription() != null) {
             TDocumentation documentation = new TDocumentation();
-            documentation.getContent().add(task.getDescription());
+            documentation.getContent().add(Util.getPlainTextFromHTML(task.getDescription()));
             bpmnTask.getDocumentation().add(documentation);
         }
 
