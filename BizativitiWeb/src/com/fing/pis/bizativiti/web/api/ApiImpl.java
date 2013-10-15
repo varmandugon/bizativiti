@@ -13,6 +13,8 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
+import com.sun.org.apache.xerces.internal.util.Status;
+
 class ApiImpl implements Api {
 
     private static final String LOG_SUFFIX = "_log";
@@ -21,7 +23,9 @@ class ApiImpl implements Api {
     private static final String PROCESSED_DIRECTORY = "processed";
     private final File uploadDir;
     private final File processedDir;
+    private static final integer MAX_CONCURRENT_PROCESSED_FILES = 5;
     private Map<String, Status> tasks = new HashMap<String, Status>();
+    private Map<String, Status> pendingTasks = new HashMap<String, Status>();
 
     public ApiImpl(ServletContext servletContext) {
         File baseFile = new File(servletContext.getInitParameter("server_files_dir"));
@@ -34,7 +38,11 @@ class ApiImpl implements Api {
     }
 
     private File getUploadFileForTicket(String ticketId) {
-        return new File(uploadDir, ticketId);
+    	if (tasks.size()==5){
+    		
+    	}else{
+    		return new File(uploadDir, ticketId);
+    	}
     }
 
     private File getProcessedFileForTicket(String ticketId) {

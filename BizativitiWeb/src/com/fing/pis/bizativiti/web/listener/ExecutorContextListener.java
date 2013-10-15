@@ -9,18 +9,19 @@ import javax.servlet.ServletContextListener;
 public class ExecutorContextListener implements ServletContextListener {
 	private ExecutorService executor;
 
+
 	@Override
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {
 		ServletContext context = servletContextEvent.getServletContext();
 		executor.shutdown();
-		
 
 	}
 
 	@Override
-	public void contextInitialized(ServletContextEvent arg0) {
-		// TODO Auto-generated method stub
-
+	public void contextInitialized(ServletContextEvent sce) {
+//        if ((myThread == null) || (!myThread.isAlive())) {
+//            myThread = new MyThreadClass();
+//            myThread.start();
+//        }
 	}
-
 }
